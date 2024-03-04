@@ -13,30 +13,30 @@ import { UpdateBlogDto } from '../dto/update-blog.dto';
 
 @Controller('blogs')
 export class BlogController {
-  constructor(private readonly blogsService: BlogService) {}
+  constructor(private readonly blogService: BlogService) {}
 
   @Post()
   create(@Body() createBlogDto: CreateBlogDto) {
-    return this.blogsService.create(createBlogDto);
+    return this.blogService.create(createBlogDto);
   }
 
   @Get()
   findAll() {
-    return this.blogsService.findAll();
+    return this.blogService.findAll();
   }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.blogsService.findOne(+id);
+    return this.blogService.findOne(+id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateBlogDto: UpdateBlogDto) {
-    return this.blogsService.update(+id, updateBlogDto);
+    return this.blogService.update(+id, updateBlogDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.blogsService.remove(+id);
+    return this.blogService.remove(+id);
   }
 }
