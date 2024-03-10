@@ -19,9 +19,9 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "typeorm": "./node_modules/.bin/typeorm",
-    "typeorm:migration:show": "DATABASE_MIGRATION=true && yarn run typeorm migration:show -d dist/src/config/typeorm.config.js",
-    "typeorm:migration:run": "DATABASE_MIGRATION=true && yarn run typeorm migration:run -d dist/src/config/typeorm.config.js",
-    "typeorm:migration:generate": "DATABASE_MIGRATION=true && yarn run typeorm migration:generate -d dist/src/config/typeorm.config.js"
+    "typeorm:migration:show": "DATABASE_MIGRATION=true && yarn run typeorm migration:show -d dist/src/config/shared/typeorm.config.js",
+    "typeorm:migration:run": "DATABASE_MIGRATION=true && yarn run typeorm migration:run -d dist/src/config/shared/typeorm.config.js",
+    "typeorm:migration:generate": "DATABASE_MIGRATION=true && yarn run typeorm migration:generate -d dist/src/config/shared/typeorm.config.js"
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
@@ -29,7 +29,7 @@
     "@nestjs/platform-express": "^10.0.0",
     "@nestjs/swagger": "^7.3.0",
     "@nestjs/typeorm": "^10.0.2",
-    "pg": "^8.11.3",
+    "mysql": "^2.18.1",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1",
     "typeorm": "^0.3.20"
