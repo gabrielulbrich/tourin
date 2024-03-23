@@ -1,6 +1,6 @@
 import { Column, PrimaryGeneratedColumn } from "typeorm";
 
-export class AttractionCategories {
+export class AttractionCategoriesEntity {
     @PrimaryGeneratedColumn()
     id!: number;
 

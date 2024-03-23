@@ -1,6 +1,6 @@
 import { Column, PrimaryGeneratedColumn } from "typeorm";
 
-export class AttractionImages {
+export class AttractionImagesEntity {
     @PrimaryGeneratedColumn()
     id!: string;
 

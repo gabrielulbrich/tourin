@@ -1,6 +1,6 @@
 import { Column, Index, PrimaryGeneratedColumn } from "typeorm";
 
-export class Attraction {
+export class AttractionEntity {
     @PrimaryGeneratedColumn()
     id: string;
 

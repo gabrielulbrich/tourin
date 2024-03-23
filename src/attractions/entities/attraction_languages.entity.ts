@@ -1,6 +1,6 @@
 import { Column, PrimaryGeneratedColumn } from "typeorm";
 
-export class AttractionLanguages {
+export class AttractionLanguagesEntity {
     @PrimaryGeneratedColumn()
     id!: string;
 
