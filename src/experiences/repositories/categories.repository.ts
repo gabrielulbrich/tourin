@@ -1,7 +1,7 @@
 import { EntityManager } from 'typeorm';
 import { ICategoriesRepository } from '../interfaces/categories.interface';
 import { Injectable } from '@nestjs/common';
-import { CategoriesEntity } from "../entities/categories.entity";
+import { CategoriesEntity } from '../entities/categories.entity';
 
 @Injectable()
 export class CategoriesRepository implements ICategoriesRepository {

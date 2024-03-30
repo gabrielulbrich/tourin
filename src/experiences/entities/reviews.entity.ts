@@ -1,5 +1,6 @@
-import { Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
+@Entity({ name: 'reviews' })
 export class ReviewsEntity {
   @PrimaryGeneratedColumn()
   id!: string;
@@ -10,6 +11,6 @@ export class ReviewsEntity {
   @Column({ type: 'longtext' })
   review: string;
 
-  @Column({ type: 'int', length: 5 })
+  @Column({ type: 'int' })
   rate: string;
 }

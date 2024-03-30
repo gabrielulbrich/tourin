@@ -9,7 +9,7 @@ export const config: DataSourceOptions = {
   password: process.env.DATABASE_PASSWORD,
   database: process.env.DATABASE_NAME,
   synchronize: false,
-  entities: [__dirname + '/../../**/*.entity.{js,ts}'],
+  entities: [__dirname + '/../../**/entities/*.entity.{js,ts}'],
   migrationsRun: process.env.DATABASE_MIGRATION === 'true',
   migrationsTableName: 'migrations',
   migrations: [process.env.DATABASE_MIGRATION_FILES ?? 'dist/migrations/*.js'],
@@ -19,5 +19,3 @@ export const config: DataSourceOptions = {
 
 export const typeOrmConfig: TypeOrmModuleOptions = config;
 export const typeOrmConfigMigration = new DataSource(config);
-
-export default { typeOrmConfig, typeOrmConfigMigration };

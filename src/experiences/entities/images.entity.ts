@@ -1,6 +1,13 @@
-import { Column, ManyToOne, PrimaryGeneratedColumn, JoinColumn } from 'typeorm';
+import {
+  Column,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+  JoinColumn,
+  Entity,
+} from 'typeorm';
 import { ExperiencesEntity } from './experiences.entity';
 
+@Entity({ name: 'images' })
 export class ImagesEntity {
   @PrimaryGeneratedColumn()
   id!: string;

@@ -12,6 +12,6 @@ import { CategoriesRepository } from './repositories/categories.repository';
       provide: CATEGORIES_REPOSITORY_TOKEN,
       useClass: CategoriesRepository,
     },
-],
+  ],
 })
 export class ExperiencesModule {}

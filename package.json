@@ -18,10 +18,10 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "typeorm": "./node_modules/.bin/typeorm",
-    "typeorm:migration:show": "DATABASE_MIGRATION=true && yarn run typeorm migration:show -d dist/src/config/shared/typeorm.config.js",
-    "typeorm:migration:run": "DATABASE_MIGRATION=true && yarn run typeorm migration:run -d dist/src/config/shared/typeorm.config.js",
-    "typeorm:migration:generate": "DATABASE_MIGRATION=true && yarn run typeorm migration:generate -d dist/src/config/shared/typeorm.config.js"
+    "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/.bin/typeorm",
+    "typeorm migration:show": "DATABASE_MIGRATION=true && ts-node -r tsconfig-paths/register ./node_modules/.bin/typeorm migration:show -d src/shared/config/typeorm.config.ts",
+    "typeorm migration:run": "DATABASE_MIGRATION=true && ts-node -r tsconfig-paths/register ./node_modules/.bin/typeorm migration:run -d src/shared/config/typeorm.config.ts",
+    "typeorm migration:generate": "DATABASE_MIGRATION=true && ts-node -r tsconfig-paths/register ./node_modules/.bin/typeorm migration:generate ./migrations/migration -d src/shared/config/typeorm.config.ts"
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
