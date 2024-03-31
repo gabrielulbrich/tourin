@@ -22,6 +22,6 @@ export class ImagesEntity {
   type: string;
 
   @ManyToOne(() => ExperiencesEntity, (experience) => experience.images)
-  @JoinColumn()
+  @JoinColumn({ name: 'experience_id' })
   experience: ExperiencesEntity;
 }

@@ -1,6 +1,7 @@
 import {
   Column,
   Entity,
+  JoinColumn,
   ManyToOne,
   OneToMany,
   PrimaryGeneratedColumn,
@@ -20,6 +21,7 @@ export class PricingEntity {
     () => AvailabilitiesEntity,
     (availabilities) => availabilities.pricing,
   )
+  @JoinColumn({ name: 'availability_id' })
   availabilities: AvailabilitiesEntity;
 
   @OneToMany(

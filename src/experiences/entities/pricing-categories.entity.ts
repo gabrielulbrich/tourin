@@ -40,6 +40,6 @@ export class PricingCategoriesEntity {
   participantsType: 'individual' | 'group';
 
   @ManyToOne(() => PricingEntity, (pricing) => pricing.pricingCategories)
-  @JoinColumn()
+  @JoinColumn({ name: 'pricing_id' })
   pricing: PricingEntity;
 }

@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { ExperiencesEntity } from './experiences.entity';
 
 @Entity({ name: 'reviews' })
 export class ReviewsEntity {
@@ -9,8 +10,24 @@ export class ReviewsEntity {
   user: string;
 
   @Column({ type: 'longtext' })
-  review: string;
+  message: string;
 
   @Column({ type: 'int' })
-  rate: string;
+  rating: number;
+
+  @Column({ type: 'tinyint' })
+  isAnonymous: boolean;
+
+  // Todo:: add author object
+  // @Column({ type: 'varchar' })
+  // author: {
+  //   fullName: string,
+  //   country: string,
+  // };
+
+  @ManyToOne(() => ExperiencesEntity, (experience) => experience.reviews)
+  experience: ExperiencesEntity;
+
+  @Column({ type: 'date', default: () => 'CURRENT_TIMESTAMP' })
+  created_at: Date;
 }

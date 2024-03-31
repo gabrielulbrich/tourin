@@ -19,6 +19,6 @@ export class LanguagesEntity {
   language: string;
 
   @ManyToOne(() => ExperiencesEntity, (experience) => experience.languages)
-  @JoinColumn()
+  @JoinColumn({ name: 'experience_id' })
   experience: ExperiencesEntity;
 }

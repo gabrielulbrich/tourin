@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity({ name: 'categories' })
 export class CategoriesEntity {
@@ -7,4 +7,7 @@ export class CategoriesEntity {
 
   @Column({ type: 'varchar', length: 50 })
   category: string;
+
+  @OneToOne(() => CategoriesEntity)
+  experiences: CategoriesEntity;
 }

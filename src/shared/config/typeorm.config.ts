@@ -8,7 +8,7 @@ export const config: DataSourceOptions = {
   username: process.env.DATABASE_USER,
   password: process.env.DATABASE_PASSWORD,
   database: process.env.DATABASE_NAME,
-  synchronize: false,
+  synchronize: process.env.ENVIRONMENT === 'development',
   entities: [__dirname + '/../../**/entities/*.entity.{js,ts}'],
   migrationsRun: process.env.DATABASE_MIGRATION === 'true',
   migrationsTableName: 'migrations',
