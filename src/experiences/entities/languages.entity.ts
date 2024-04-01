@@ -5,7 +5,7 @@ import {
   JoinColumn,
   Entity,
 } from 'typeorm';
-import { ExperiencesEntity } from './experiences.entity';
+import { ExperiencesOptionsEntity } from './experiences_options.entity';
 
 @Entity({ name: 'languages' })
 export class LanguagesEntity {
@@ -18,7 +18,10 @@ export class LanguagesEntity {
   @Column({ type: 'varchar', length: 50 })
   language: string;
 
-  @ManyToOne(() => ExperiencesEntity, (experience) => experience.languages)
+  @ManyToOne(
+    () => ExperiencesOptionsEntity,
+    (experience) => experience.languages,
+  )
   @JoinColumn({ name: 'experience_id' })
-  experience: ExperiencesEntity;
+  experience: ExperiencesOptionsEntity;
 }

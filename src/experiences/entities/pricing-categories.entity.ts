@@ -16,7 +16,10 @@ export class PricingCategoriesEntity {
   code: number;
 
   @Column({ type: 'varchar', length: 50 })
-  title: string;
+  ticketCategory: string; // 'adult', 'child', 'youth', 'senior', 'student'
+
+  @Column({ type: 'integer' })
+  commissionRate: number;
 
   @Column({ type: 'integer' })
   price: number;
@@ -32,9 +35,6 @@ export class PricingCategoriesEntity {
 
   @Column({ type: 'integer' })
   maxAge: number;
-
-  @Column({ type: 'integer' })
-  maxParticipants: number;
 
   @Column({ type: 'varchar', length: 50 })
   participantsType: 'individual' | 'group';

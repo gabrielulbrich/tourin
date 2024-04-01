@@ -7,7 +7,7 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { PricingCategoriesEntity } from './pricing-categories.entity';
-import { AvailabilitiesEntity } from './availabilities.entity';
+import { ExperiencesOptionsEntity } from './experiences_options.entity';
 
 @Entity({ name: 'pricing' })
 export class PricingEntity {
@@ -15,14 +15,14 @@ export class PricingEntity {
   id!: string;
 
   @Column({ type: 'varchar', length: 50 })
-  title: string;
+  name: string;
 
   @ManyToOne(
-    () => AvailabilitiesEntity,
-    (availabilities) => availabilities.pricing,
+    () => ExperiencesOptionsEntity,
+    (experienceOptions) => experienceOptions.pricing,
   )
   @JoinColumn({ name: 'availability_id' })
-  availabilities: AvailabilitiesEntity;
+  experiencesOptions: ExperiencesOptionsEntity;
 
   @OneToMany(
     () => PricingCategoriesEntity,

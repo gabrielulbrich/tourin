@@ -3,11 +3,12 @@ import {
   Entity,
   JoinColumn,
   ManyToOne,
-  OneToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { PricingEntity } from './pricing.entity';
 import { ExperiencesOptionsEntity } from './experiences_options.entity';
+import { ExperiencesEntity } from './experiences.entity';
+import { ScheduleEntity } from './schedule.entity';
 
 @Entity({ name: 'availabilities' })
 export class AvailabilitiesEntity {
@@ -23,13 +24,17 @@ export class AvailabilitiesEntity {
   @Column({ type: 'integer' })
   endTime: number;
 
-  @OneToOne(() => PricingEntity, (pricing) => pricing.availabilities)
-  pricing: PricingEntity;
+  @OneToMany(() => ScheduleEntity, (schedule) => schedule.availabilities)
+  schedule: ScheduleEntity[];
 
   @ManyToOne(
     () => ExperiencesOptionsEntity,
-    (experience) => experience.availabilities,
+    (experienceOptions) => experienceOptions.availabilities,
   )
-  @JoinColumn({ name: 'experience_id' })
+  @JoinColumn({ name: 'experience_options_id' })
   experienceOptions: ExperiencesOptionsEntity;
+
+  @ManyToOne(() => ExperiencesEntity, (experience) => experience.availabilities)
+  @JoinColumn({ name: 'experience_id' })
+  experience: ExperiencesEntity;
 }

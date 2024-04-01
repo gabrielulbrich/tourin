@@ -8,9 +8,10 @@ import {
 } from 'typeorm';
 import { CategoriesEntity } from './categories.entity';
 import { ImagesEntity } from './images.entity';
-import { LanguagesEntity } from './languages.entity';
 import { ReviewsEntity } from './reviews.entity';
 import { ExperiencesOptionsEntity } from './experiences_options.entity';
+import { AvailabilitiesEntity } from './availabilities.entity';
+import { ScheduleEntity } from './schedule.entity';
 
 @Entity({ name: 'experiences' })
 export class ExperiencesEntity {
@@ -53,25 +54,28 @@ export class ExperiencesEntity {
   @Column({ type: 'longtext' })
   whatToBring: string;
 
-  @Column({ type: 'longtext' })
-  whereToMeet: string;
-
   @OneToMany(
     () => ExperiencesOptionsEntity,
     (experiencesOptions) => experiencesOptions.experiences,
   )
-  experiencesOptions: ExperiencesOptionsEntity;
+  experiencesOptions: ExperiencesOptionsEntity[];
 
   @OneToOne(() => CategoriesEntity)
   @JoinColumn({ name: 'category_id' })
   category: CategoriesEntity;
 
   @OneToMany(() => ImagesEntity, (images) => images.experience)
-  images: ImagesEntity;
+  images: ImagesEntity[];
 
-  @OneToMany(() => LanguagesEntity, (languages) => languages.experience)
-  languages: LanguagesEntity;
+  @OneToMany(() => ReviewsEntity, (r) => r.experience)
+  reviews: ReviewsEntity[];
 
-  @OneToMany(() => ReviewsEntity, (reviews) => reviews.experience)
-  reviews: ReviewsEntity;
+  @OneToMany(
+    () => AvailabilitiesEntity,
+    (availabilities) => availabilities.experience,
+  )
+  availabilities: AvailabilitiesEntity[];
+
+  @OneToMany(() => ScheduleEntity, (schedule) => schedule.experience)
+  schedule: ScheduleEntity[];
 }
