@@ -10,7 +10,7 @@ import { ExperiencesEntity } from './experiences.entity';
 @Entity({ name: 'images' })
 export class ImagesEntity {
   @PrimaryGeneratedColumn()
-  id!: string;
+  id!: number;
 
   @Column({ type: 'varchar', length: 100 })
   name: string;

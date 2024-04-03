@@ -10,7 +10,7 @@ import { ScheduleEntity } from './schedule.entity';
 @Entity()
 export class TimeSlotsEntity {
   @PrimaryGeneratedColumn()
-  id!: string;
+  id!: number;
 
   @Column({ type: 'varchar' })
   from: string;

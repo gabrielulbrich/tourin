@@ -10,7 +10,7 @@ import { PricingEntity } from './pricing.entity';
 @Entity({ name: 'pricing_categories' })
 export class PricingCategoriesEntity {
   @PrimaryGeneratedColumn()
-  id!: string;
+  id!: number;
 
   @Column({ type: 'integer' })
   code: number;

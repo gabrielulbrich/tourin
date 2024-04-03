@@ -9,12 +9,12 @@ import {
 import { AvailabilitiesEntity } from './availabilities.entity';
 import { TimeSlotsEntity } from './time-slots.entity';
 import { ExperiencesEntity } from './experiences.entity';
-import { ExperiencesOptionsEntity } from './experiences_options.entity';
+import { OptionsEntity } from './options.entity';
 
 @Entity({ name: 'schedule' })
 export class ScheduleEntity {
   @PrimaryGeneratedColumn()
-  id!: string;
+  id!: number;
 
   @Column({
     type: 'enum',
@@ -48,10 +48,7 @@ export class ScheduleEntity {
   @JoinColumn({ name: 'experience_id' })
   experience: ExperiencesEntity;
 
-  @ManyToOne(
-    () => ExperiencesOptionsEntity,
-    (experience) => experience.schedule,
-  )
-  @JoinColumn({ name: 'experience_options_id' })
-  experienceOptions: ExperiencesOptionsEntity;
+  @ManyToOne(() => OptionsEntity, (experience) => experience.schedule)
+  @JoinColumn({ name: 'options_id' })
+  options: OptionsEntity;
 }

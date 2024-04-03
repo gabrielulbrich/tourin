@@ -5,12 +5,12 @@ import {
   JoinColumn,
   Entity,
 } from 'typeorm';
-import { ExperiencesOptionsEntity } from './experiences_options.entity';
+import { OptionsEntity } from './options.entity';
 
 @Entity({ name: 'languages' })
 export class LanguagesEntity {
   @PrimaryGeneratedColumn()
-  id!: string;
+  id!: number;
 
   @Column({ type: 'varchar', length: 50 })
   isoCode: string;
@@ -18,10 +18,7 @@ export class LanguagesEntity {
   @Column({ type: 'varchar', length: 50 })
   language: string;
 
-  @ManyToOne(
-    () => ExperiencesOptionsEntity,
-    (experience) => experience.languages,
-  )
+  @ManyToOne(() => OptionsEntity, (experience) => experience.languages)
   @JoinColumn({ name: 'experience_id' })
-  experience: ExperiencesOptionsEntity;
+  experience: OptionsEntity;
 }

@@ -9,7 +9,7 @@ import {
 import { CategoriesEntity } from './categories.entity';
 import { ImagesEntity } from './images.entity';
 import { ReviewsEntity } from './reviews.entity';
-import { ExperiencesOptionsEntity } from './experiences_options.entity';
+import { OptionsEntity } from './options.entity';
 import { AvailabilitiesEntity } from './availabilities.entity';
 import { ScheduleEntity } from './schedule.entity';
 
@@ -54,11 +54,8 @@ export class ExperiencesEntity {
   @Column({ type: 'longtext' })
   whatToBring: string;
 
-  @OneToMany(
-    () => ExperiencesOptionsEntity,
-    (experiencesOptions) => experiencesOptions.experiences,
-  )
-  experiencesOptions: ExperiencesOptionsEntity[];
+  @OneToMany(() => OptionsEntity, (options) => options.experiences)
+  options: OptionsEntity[];
 
   @OneToOne(() => CategoriesEntity)
   @JoinColumn({ name: 'category_id' })

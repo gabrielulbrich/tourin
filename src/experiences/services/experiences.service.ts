@@ -5,6 +5,7 @@ import {
   EXPERIENCES_REPOSITORY_TOKEN,
 } from 'src/shared/utils/constants.const';
 import { ExperiencesRepository } from '../repositories/experiences.repository';
+import { AvailabilityOptionsFilterDto } from '../dto/availability-options-filter.dto';
 
 @Injectable()
 export class ExperiencesService {
@@ -18,5 +19,12 @@ export class ExperiencesService {
   async getOverview(id: number) {
     const overview = await this.experiencesRepository.getOverview(id);
     return overview;
+  }
+
+  async getAvailability(
+    id: number,
+    availability: AvailabilityOptionsFilterDto,
+  ) {
+    return await this.experiencesRepository.getAvailability(id, availability);
   }
 }

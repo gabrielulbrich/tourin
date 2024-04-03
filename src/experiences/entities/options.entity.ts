@@ -14,7 +14,7 @@ import { ScheduleEntity } from './schedule.entity';
 import { LanguagesEntity } from './languages.entity';
 
 @Entity({ name: 'experiences_options' })
-export class ExperiencesOptionsEntity {
+export class OptionsEntity {
   @PrimaryGeneratedColumn()
   id!: number;
 
@@ -27,23 +27,20 @@ export class ExperiencesOptionsEntity {
   @OneToMany(() => LanguagesEntity, (languages) => languages.experience)
   languages: LanguagesEntity[];
 
-  @ManyToOne(
-    () => ExperiencesEntity,
-    (experiences) => experiences.experiencesOptions,
-  )
+  @ManyToOne(() => ExperiencesEntity, (experiences) => experiences.options)
   @JoinColumn({ name: 'experience_id' })
   experiences: ExperiencesEntity;
 
   @OneToMany(
     () => AvailabilitiesEntity,
-    (availabilities) => availabilities.experienceOptions,
+    (availabilities) => availabilities.options,
   )
   availabilities: AvailabilitiesEntity;
 
-  @OneToMany(() => ScheduleEntity, (schedule) => schedule.experienceOptions)
+  @OneToMany(() => ScheduleEntity, (schedule) => schedule.options)
   schedule: ScheduleEntity;
 
-  @OneToOne(() => PricingEntity, (pricing) => pricing.experiencesOptions)
+  @OneToOne(() => PricingEntity, (pricing) => pricing.options)
   pricing: PricingEntity;
 
   //todo: attributes (duration, acessibility, skiptheline, validity) and cancellation policy
