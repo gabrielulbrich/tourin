@@ -18,7 +18,7 @@ export class LanguagesEntity {
   @Column({ type: 'varchar', length: 50 })
   language: string;
 
-  @ManyToOne(() => OptionsEntity, (experience) => experience.languages)
-  @JoinColumn({ name: 'experience_id' })
+  @ManyToOne(() => OptionsEntity, (option) => option.languages)
+  @JoinColumn({ name: 'option_id' })
   experience: OptionsEntity;
 }

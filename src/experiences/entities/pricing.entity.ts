@@ -18,7 +18,7 @@ export class PricingEntity {
   name: string;
 
   @ManyToOne(() => OptionsEntity, (options) => options.pricing)
-  @JoinColumn({ name: 'availability_id' })
+  @JoinColumn({ name: 'option_id' })
   options: OptionsEntity;
 
   @OneToMany(

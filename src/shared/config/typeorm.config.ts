@@ -1,5 +1,6 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { DataSource, DataSourceOptions } from 'typeorm';
+import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 
 export const config: DataSourceOptions = {
   type: 'mysql',
@@ -15,6 +16,7 @@ export const config: DataSourceOptions = {
   migrations: [process.env.DATABASE_MIGRATION_FILES ?? 'dist/migrations/*.js'],
   logging: process.env.DATABASE_MIGRATION === 'true',
   logger: 'advanced-console',
+  namingStrategy: new SnakeNamingStrategy(),
 };
 
 export const typeOrmConfig: TypeOrmModuleOptions = config;

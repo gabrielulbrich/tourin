@@ -28,7 +28,7 @@ export class AvailabilitiesEntity {
   schedule: ScheduleEntity[];
 
   @ManyToOne(() => OptionsEntity, (options) => options.availabilities)
-  @JoinColumn({ name: 'options_id' })
+  @JoinColumn({ name: 'option_id' })
   options: OptionsEntity;
 
   @ManyToOne(() => ExperiencesEntity, (experience) => experience.availabilities)

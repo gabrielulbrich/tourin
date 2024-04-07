@@ -13,7 +13,7 @@ import { PricingEntity } from './pricing.entity';
 import { ScheduleEntity } from './schedule.entity';
 import { LanguagesEntity } from './languages.entity';
 
-@Entity({ name: 'experiences_options' })
+@Entity({ name: 'options' })
 export class OptionsEntity {
   @PrimaryGeneratedColumn()
   id!: number;
