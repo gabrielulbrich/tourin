@@ -1,5 +1,5 @@
-import { CategoriesEntity } from '../entities/categories.entity';
+import { KeywordsEntity } from '../entities/keywords.entity';
 
 export interface ICategoriesRepository {
-  findOne(categoryId: number): Promise<CategoriesEntity>;
+  findOne(categoryId: number): Promise<KeywordsEntity>;
 }

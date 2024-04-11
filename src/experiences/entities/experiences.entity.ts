@@ -1,12 +1,5 @@
-import {
-  Column,
-  OneToMany,
-  OneToOne,
-  PrimaryGeneratedColumn,
-  JoinColumn,
-  Entity,
-} from 'typeorm';
-import { CategoriesEntity } from './categories.entity';
+import { Column, OneToMany, PrimaryGeneratedColumn, Entity } from 'typeorm';
+import { KeywordsEntity } from './keywords.entity';
 import { ImagesEntity } from './images.entity';
 import { ReviewsEntity } from './reviews.entity';
 import { OptionsEntity } from './options.entity';
@@ -52,14 +45,25 @@ export class ExperiencesEntity {
   whatsIncluded: string;
 
   @Column({ type: 'longtext' })
+  whatsNotIncluded: string;
+
+  @Column({ type: 'longtext' })
   whatToBring: string;
+
+  @Column({ type: 'longtext' })
+  notSuitableFor: string;
+
+  @Column({ type: 'longtext' })
+  notAllowed: string;
+
+  @Column({ type: 'longtext' })
+  customInformation: string;
 
   @OneToMany(() => OptionsEntity, (options) => options.experiences)
   options: OptionsEntity[];
 
-  @OneToOne(() => CategoriesEntity)
-  @JoinColumn({ name: 'category_id' })
-  category: CategoriesEntity;
+  @OneToMany(() => KeywordsEntity, (keywords) => keywords.experiences)
+  keywords: KeywordsEntity;
 
   @OneToMany(() => ImagesEntity, (images) => images.experience)
   images: ImagesEntity[];
