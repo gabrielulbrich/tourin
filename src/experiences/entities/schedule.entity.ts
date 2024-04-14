@@ -8,7 +8,7 @@ import {
 } from 'typeorm';
 import { AvailabilitiesEntity } from './availabilities.entity';
 import { TimeSlotsEntity } from './time-slots.entity';
-import { ExperiencesEntity } from './experiences.entity';
+import { ProductsEntity } from './products.entity';
 import { OptionsEntity } from './options.entity';
 
 @Entity({ name: 'schedule' })
@@ -44,9 +44,9 @@ export class ScheduleEntity {
   @JoinColumn({ name: 'availability_id' })
   availabilities: AvailabilitiesEntity;
 
-  @ManyToOne(() => ExperiencesEntity, (experience) => experience.schedule)
-  @JoinColumn({ name: 'experience_id' })
-  experience: ExperiencesEntity;
+  @ManyToOne(() => ProductsEntity, (product) => product.schedule)
+  @JoinColumn({ name: 'product_id' })
+  product: ProductsEntity;
 
   @ManyToOne(() => OptionsEntity, (experience) => experience.schedule)
   @JoinColumn({ name: 'option_id' })

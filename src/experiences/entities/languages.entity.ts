@@ -20,5 +20,5 @@ export class LanguagesEntity {
 
   @ManyToOne(() => OptionsEntity, (option) => option.languages)
   @JoinColumn({ name: 'option_id' })
-  experience: OptionsEntity;
+  option: OptionsEntity;
 }

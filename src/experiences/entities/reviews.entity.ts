@@ -1,5 +1,5 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
-import { ExperiencesEntity } from './experiences.entity';
+import { ProductsEntity } from './products.entity';
 
 @Entity({ name: 'reviews' })
 export class ReviewsEntity {
@@ -25,8 +25,8 @@ export class ReviewsEntity {
   //   country: string,
   // };
 
-  @ManyToOne(() => ExperiencesEntity, (experience) => experience.reviews)
-  experience: ExperiencesEntity;
+  @ManyToOne(() => ProductsEntity, (product) => product.reviews)
+  product: ProductsEntity;
 
   @Column({ type: 'date', default: () => 'CURRENT_TIMESTAMP' })
   created_at: Date;

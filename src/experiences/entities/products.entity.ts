@@ -6,15 +6,15 @@ import { OptionsEntity } from './options.entity';
 import { AvailabilitiesEntity } from './availabilities.entity';
 import { ScheduleEntity } from './schedule.entity';
 
-@Entity({ name: 'experiences' })
-export class ExperiencesEntity {
+@Entity({ name: 'products' })
+export class ProductsEntity {
   @PrimaryGeneratedColumn()
   id!: number;
 
   @Column({ type: 'varchar' })
   slug: string;
 
-  @Column({ type: 'varchar' })
+  @Column({ type: 'enum', enum: ['ticket', 'tour', 'transfer'] })
   type: string;
 
   @Column({ type: 'varchar', length: 36 })
@@ -23,14 +23,11 @@ export class ExperiencesEntity {
   @Column({ type: 'longtext' })
   about: string;
 
-  @Column({ type: 'varchar', length: 10 })
+  @Column({ type: 'time' })
   startTime: string;
 
-  @Column({ type: 'varchar', length: 10 })
+  @Column({ type: 'time' })
   endTime: string;
-
-  @Column({ type: 'varchar', length: 36 })
-  ticketType: string;
 
   @Column({ type: 'varchar', length: 50 })
   city: string;
@@ -41,42 +38,45 @@ export class ExperiencesEntity {
   @Column({ type: 'varchar', length: 50 })
   country: string;
 
-  @Column({ type: 'longtext' })
-  whatsIncluded: string;
+  @Column({ type: 'varchar', length: 50 })
+  location: string; // TODO: latitud, longitud
 
-  @Column({ type: 'longtext' })
-  whatsNotIncluded: string;
+  @Column({ type: 'json' })
+  whatsIncluded: Record<string, any>;
 
-  @Column({ type: 'longtext' })
-  whatToBring: string;
+  @Column({ type: 'json' })
+  whatsNotIncluded: Record<string, any>;
 
-  @Column({ type: 'longtext' })
-  notSuitableFor: string;
+  @Column({ type: 'json' })
+  whatToBring: Record<string, any>;
 
-  @Column({ type: 'longtext' })
-  notAllowed: string;
+  @Column({ type: 'json' })
+  notSuitableFor: Record<string, any>;
+
+  @Column({ type: 'json' })
+  notAllowed: Record<string, any>;
 
   @Column({ type: 'longtext' })
   customInformation: string;
 
-  @OneToMany(() => OptionsEntity, (options) => options.experiences)
+  @OneToMany(() => OptionsEntity, (options) => options.product)
   options: OptionsEntity[];
 
-  @OneToMany(() => KeywordsEntity, (keywords) => keywords.experiences)
+  @OneToMany(() => KeywordsEntity, (keywords) => keywords.product)
   keywords: KeywordsEntity;
 
-  @OneToMany(() => ImagesEntity, (images) => images.experience)
+  @OneToMany(() => ImagesEntity, (images) => images.product)
   images: ImagesEntity[];
 
-  @OneToMany(() => ReviewsEntity, (r) => r.experience)
+  @OneToMany(() => ReviewsEntity, (review) => review.product)
   reviews: ReviewsEntity[];
 
   @OneToMany(
     () => AvailabilitiesEntity,
-    (availabilities) => availabilities.experience,
+    (availabilities) => availabilities.product,
   )
   availabilities: AvailabilitiesEntity[];
 
-  @OneToMany(() => ScheduleEntity, (schedule) => schedule.experience)
+  @OneToMany(() => ScheduleEntity, (schedule) => schedule.product)
   schedule: ScheduleEntity[];
 }

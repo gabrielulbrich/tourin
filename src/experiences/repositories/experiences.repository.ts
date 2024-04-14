@@ -1,7 +1,7 @@
 import { EntityManager } from 'typeorm';
 import { Injectable } from '@nestjs/common';
 import { IExperienceRepository } from '../interfaces/experiences.interface';
-import { ExperiencesEntity } from '../entities/experiences.entity';
+import { ProductsEntity } from '../entities/products.entity';
 import { AvailabilitiesEntity } from '../entities/availabilities.entity';
 import { AvailabilityOptionsFilterDto } from '../dto/availability-options-filter.dto';
 
@@ -9,8 +9,8 @@ import { AvailabilityOptionsFilterDto } from '../dto/availability-options-filter
 export class ExperiencesRepository implements IExperienceRepository {
   constructor(private readonly entityManager: EntityManager) {}
 
-  async getOverview(id: number): Promise<ExperiencesEntity> {
-    return await this.entityManager.findOne(ExperiencesEntity, {
+  async getOverview(id: number): Promise<ProductsEntity> {
+    return await this.entityManager.findOne(ProductsEntity, {
       where: {
         id: id,
       },
@@ -40,7 +40,7 @@ export class ExperiencesRepository implements IExperienceRepository {
     });
   }
 
-  getAttractionsByCategory(categoryId: number): Promise<ExperiencesEntity> {
+  getAttractionsByCategory(categoryId: number): Promise<ProductsEntity> {
     return Promise.resolve(undefined);
   }
 }

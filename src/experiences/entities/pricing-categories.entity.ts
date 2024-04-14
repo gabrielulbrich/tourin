@@ -15,8 +15,11 @@ export class PricingCategoriesEntity {
   @Column({ type: 'integer' })
   code: number;
 
-  @Column({ type: 'varchar', length: 50 })
-  ticketCategory: string; // 'adult', 'child', 'youth', 'senior', 'student'
+  @Column({
+    type: 'enum',
+    enum: ['adult', 'child', 'youth', 'senior', 'student'],
+  })
+  ticketCategory: string;
 
   @Column({ type: 'integer' })
   commissionRate: number;

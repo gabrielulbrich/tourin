@@ -5,6 +5,7 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
+import { ProductsEntity } from '@src/experiences/entities/products.entity';
 
 @Entity({ name: 'keywords' })
 export class KeywordsEntity {
@@ -14,7 +15,7 @@ export class KeywordsEntity {
   @Column({ type: 'varchar', length: 50 })
   category: string;
 
-  @ManyToOne(() => KeywordsEntity)
-  @JoinColumn({ name: 'experience_id' })
-  experiences: KeywordsEntity;
+  @ManyToOne(() => ProductsEntity, (product) => product.keywords)
+  @JoinColumn({ name: 'product_id' })
+  product: ProductsEntity;
 }

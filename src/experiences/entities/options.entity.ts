@@ -8,7 +8,7 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { AvailabilitiesEntity } from './availabilities.entity';
-import { ExperiencesEntity } from './experiences.entity';
+import { ProductsEntity } from './products.entity';
 import { PricingEntity } from './pricing.entity';
 import { ScheduleEntity } from './schedule.entity';
 import { LanguagesEntity } from './languages.entity';
@@ -57,12 +57,12 @@ export class OptionsEntity {
   //  //  // The day before the activity takes place
   //  //  // Within 24 hours after they book
 
-  @OneToMany(() => LanguagesEntity, (languages) => languages.experience)
+  @OneToMany(() => LanguagesEntity, (languages) => languages.option)
   languages: LanguagesEntity[];
 
-  @ManyToOne(() => ExperiencesEntity, (experiences) => experiences.options)
-  @JoinColumn({ name: 'experience_id' })
-  experiences: ExperiencesEntity;
+  @ManyToOne(() => ProductsEntity, (product) => product.options)
+  @JoinColumn({ name: 'product_id' })
+  product: ProductsEntity;
 
   @OneToMany(
     () => AvailabilitiesEntity,

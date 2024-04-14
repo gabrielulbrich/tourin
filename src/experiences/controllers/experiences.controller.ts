@@ -2,7 +2,7 @@ import { Body, Controller, Get, Param } from '@nestjs/common';
 import { ExperiencesService } from '../services/experiences.service';
 import { ApiTags } from '@nestjs/swagger';
 import { AvailabilitiesEntity } from '../entities/availabilities.entity';
-import { ExperiencesEntity } from '../entities/experiences.entity';
+import { ProductsEntity } from '../entities/products.entity';
 import { AvailabilityOptionsFilterDto } from '../dto/availability-options-filter.dto';
 
 @Controller('experiences')
@@ -11,7 +11,7 @@ export class ExperiencesController {
   constructor(private readonly experiencesService: ExperiencesService) {}
 
   @Get(':id/overview')
-  overview(@Param('id') id: number): Promise<ExperiencesEntity> {
+  overview(@Param('id') id: number): Promise<ProductsEntity> {
     return this.experiencesService.getOverview(id);
   }
 

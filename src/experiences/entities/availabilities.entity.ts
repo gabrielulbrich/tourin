@@ -7,7 +7,7 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { OptionsEntity } from './options.entity';
-import { ExperiencesEntity } from './experiences.entity';
+import { ProductsEntity } from './products.entity';
 import { ScheduleEntity } from './schedule.entity';
 
 @Entity({ name: 'availabilities' })
@@ -18,11 +18,11 @@ export class AvailabilitiesEntity {
   @Column({ type: 'integer' })
   vacancies: number;
 
-  @Column({ type: 'integer' })
-  startTime: number;
+  @Column({ type: 'date' })
+  startFrom: Date;
 
-  @Column({ type: 'integer' })
-  endTime: number;
+  @Column({ type: 'date' })
+  end: Date;
 
   @OneToMany(() => ScheduleEntity, (schedule) => schedule.availabilities)
   schedule: ScheduleEntity[];
@@ -31,7 +31,7 @@ export class AvailabilitiesEntity {
   @JoinColumn({ name: 'option_id' })
   options: OptionsEntity;
 
-  @ManyToOne(() => ExperiencesEntity, (experience) => experience.availabilities)
-  @JoinColumn({ name: 'experience_id' })
-  experience: ExperiencesEntity;
+  @ManyToOne(() => ProductsEntity, (product) => product.availabilities)
+  @JoinColumn({ name: 'product_id' })
+  product: ProductsEntity;
 }

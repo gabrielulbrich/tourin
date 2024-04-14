@@ -7,7 +7,7 @@ import {
 } from 'typeorm';
 import { ScheduleEntity } from './schedule.entity';
 
-@Entity()
+@Entity({ name: 'time_slots' })
 export class TimeSlotsEntity {
   @PrimaryGeneratedColumn()
   id!: number;
