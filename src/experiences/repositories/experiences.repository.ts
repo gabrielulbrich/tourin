@@ -16,7 +16,7 @@ export class ExperiencesRepository implements IExperienceRepository {
       },
       relations: {
         images: true,
-        category: true,
+        keywords: true,
         options: {
           schedule: {
             timeSlots: true,

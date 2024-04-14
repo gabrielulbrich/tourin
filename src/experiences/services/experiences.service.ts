@@ -3,7 +3,7 @@ import { CategoriesRepository } from '../repositories/categories.repository';
 import {
   CATEGORIES_REPOSITORY_TOKEN,
   EXPERIENCES_REPOSITORY_TOKEN,
-} from 'src/shared/utils/constants.const';
+} from '@src/experiences/utils/constants.const';
 import { ExperiencesRepository } from '../repositories/experiences.repository';
 import { AvailabilityOptionsFilterDto } from '../dto/availability-options-filter.dto';
 
