@@ -4,8 +4,10 @@ import {
   PrimaryGeneratedColumn,
   JoinColumn,
   Entity,
+  ManyToMany, OneToMany
 } from 'typeorm';
 import { OptionsEntity } from './options.entity';
+import { LanguagesToOptionsEntity } from '@src/experiences/entities/languages-to-options.entity';
 
 // todo: make it MANY TO MANY
 @Entity({ name: 'languages' })
@@ -19,7 +21,6 @@ export class LanguagesEntity {
   @Column({ type: 'varchar', length: 50 })
   language: string;
 
-  @ManyToOne(() => OptionsEntity, (option) => option.languages)
-  @JoinColumn({ name: 'option_id' })
-  option: OptionsEntity;
+  @OneToMany(() => LanguagesToOptionsEntity, (languagesToOptions) => languagesToOptions.language)
+  languagesToOptions: LanguagesToOptionsEntity[];
 }

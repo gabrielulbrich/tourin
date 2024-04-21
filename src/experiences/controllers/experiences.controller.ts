@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param } from '@nestjs/common';
+import { Body, Controller, Get, Param, Query } from '@nestjs/common';
 import { ExperiencesService } from '../services/experiences.service';
 import { ApiTags } from '@nestjs/swagger';
 import { AvailabilitiesEntity } from '../entities/availabilities.entity';
@@ -18,8 +18,8 @@ export class ExperiencesController {
   @Get(':id/available-options')
   availability(
     @Param('id') id: number,
-    @Body() availability: AvailabilityOptionsFilterDto,
+    @Query('availability') availability: AvailabilityOptionsFilterDto,
   ): Promise<AvailabilitiesEntity> {
-    return this.experiencesService.getAvailability(id, availability);
+    return this.experiencesService.getAvailability(id, new AvailabilityOptionsFilterDto());
   }
 }

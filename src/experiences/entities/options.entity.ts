@@ -1,16 +1,17 @@
 import {
   Column,
   Entity,
-  JoinColumn,
+  JoinColumn, ManyToMany,
   ManyToOne,
   OneToMany,
-  PrimaryGeneratedColumn,
+  PrimaryGeneratedColumn
 } from 'typeorm';
 import { AvailabilitiesEntity } from './availabilities.entity';
 import { ProductsEntity } from './products.entity';
 import { PricingEntity } from './pricing.entity';
 import { ScheduleEntity } from './schedule.entity';
 import { LanguagesEntity } from './languages.entity';
+import { LanguagesToOptionsEntity } from '@src/experiences/entities/languages-to-options.entity';
 
 @Entity({ name: 'options' })
 export class OptionsEntity {
@@ -60,11 +61,10 @@ export class OptionsEntity {
   //  //  // The day before the activity takes place
   //  //  // Within 24 hours after they book
 
-  @OneToMany(() => LanguagesEntity, (languages) => languages.option)
-  languages: LanguagesEntity[];
+  @OneToMany(() => LanguagesToOptionsEntity, (languagesToOptions) => languagesToOptions.option)
+  languagesToOptions: LanguagesToOptionsEntity[];
 
   @ManyToOne(() => ProductsEntity, (product) => product.options)
-  @JoinColumn({ name: 'product_id' })
   product: ProductsEntity;
 
   @OneToMany(

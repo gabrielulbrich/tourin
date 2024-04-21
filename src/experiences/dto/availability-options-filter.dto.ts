@@ -1,12 +1,16 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { IsArray, IsNumber, ValidateNested } from 'class-validator';
 
 export class AvailabilityOptionsFilterDto {
   @ApiProperty()
   date: Date;
 
   @ApiProperty()
-  category: {
-    code: string;
-    quantity: number;
-  };
+  language: number;
+
+  @ApiProperty()
+  participants: string[];
+
+  @ApiProperty()
+  category: string[];
 }
