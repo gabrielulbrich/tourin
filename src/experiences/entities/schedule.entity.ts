@@ -32,7 +32,7 @@ export class ScheduleEntity {
   day: string;
 
   @Column({ type: 'date', nullable: true })
-  date: Date;
+  date: Date; // in case of special date.
 
   @OneToMany(() => TimeSlotsEntity, (timeSlots) => timeSlots.schedule)
   timeSlots: TimeSlotsEntity[];

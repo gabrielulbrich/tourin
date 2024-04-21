@@ -12,11 +12,14 @@ export class TimeSlotsEntity {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @Column({ type: 'varchar' })
-  from: string;
+  @Column({ type: 'time' })
+  from: string; //time
 
-  @Column({ type: 'varchar' })
-  to: string;
+  @Column({ type: 'time' })
+  to: string; //time
+
+  @Column({ type: 'integer' })
+  capacity: number;
 
   @ManyToOne(() => ScheduleEntity, (schedule) => schedule.timeSlots)
   @JoinColumn({ name: 'schedule_id' })

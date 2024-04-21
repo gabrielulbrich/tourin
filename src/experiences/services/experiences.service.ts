@@ -4,14 +4,14 @@ import {
   CATEGORIES_REPOSITORY_TOKEN,
   EXPERIENCES_REPOSITORY_TOKEN,
 } from '@src/experiences/utils/constants.const';
-import { ExperiencesRepository } from '../repositories/experiences.repository';
+import { ProductsRepository } from '../repositories/products.repository';
 import { AvailabilityOptionsFilterDto } from '../dto/availability-options-filter.dto';
 
 @Injectable()
 export class ExperiencesService {
   constructor(
     @Inject(EXPERIENCES_REPOSITORY_TOKEN)
-    private readonly experiencesRepository: ExperiencesRepository,
+    private readonly experiencesRepository: ProductsRepository,
     @Inject(CATEGORIES_REPOSITORY_TOKEN)
     private readonly attractionCategories: CategoriesRepository,
   ) {}

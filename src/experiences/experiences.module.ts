@@ -6,7 +6,7 @@ import {
   EXPERIENCES_REPOSITORY_TOKEN,
 } from '@src/experiences/utils/constants.const';
 import { CategoriesRepository } from './repositories/categories.repository';
-import { ExperiencesRepository } from './repositories/experiences.repository';
+import { ProductsRepository } from './repositories/products.repository';
 
 @Module({
   controllers: [ExperiencesController],
@@ -14,7 +14,7 @@ import { ExperiencesRepository } from './repositories/experiences.repository';
     ExperiencesService,
     {
       provide: EXPERIENCES_REPOSITORY_TOKEN,
-      useClass: ExperiencesRepository,
+      useClass: ProductsRepository,
     },
     {
       provide: CATEGORIES_REPOSITORY_TOKEN,

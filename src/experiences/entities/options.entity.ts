@@ -4,7 +4,6 @@ import {
   JoinColumn,
   ManyToOne,
   OneToMany,
-  OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { AvailabilitiesEntity } from './availabilities.entity';
@@ -34,14 +33,18 @@ export class OptionsEntity {
   })
   isPrivate: boolean;
 
-  @Column({ type: 'integer' })
-  maximumTotalPeople: number;
+  @Column({ type: 'json', nullable: true })
+  duration: {
+    unit: 'minutes' | 'hours' | 'days';
+    value: number;
+  }; // It lasts for a specific amount of time (duration)
 
-  @Column({ type: 'varchar', length: 50, nullable: true })
-  duration: string; // It lasts for a specific amount of time (duration)
-
-  @Column({ type: 'varchar', length: 50, nullable: true })
-  validity: string; // Customers can use their ticket anytime during a certain period (validity)
+  @Column({ type: 'json', nullable: true })
+  validity: {
+    from: 'time_booked' | 'time_selected' | 'time_activated';
+    unit: 'minutes' | 'hours' | 'days';
+    value: number;
+  }; // Customers can use their ticket anytime during a certain period (validity)
 
   @Column({ type: 'varchar', length: 50, nullable: true })
   cutOff: string; // The cut-off time is the latest you accept new bookings before the activity starts.
@@ -73,6 +76,6 @@ export class OptionsEntity {
   @OneToMany(() => ScheduleEntity, (schedule) => schedule.options)
   schedule: ScheduleEntity;
 
-  @OneToOne(() => PricingEntity, (pricing) => pricing.options)
+  @OneToMany(() => PricingEntity, (pricing) => pricing.options)
   pricing: PricingEntity;
 }

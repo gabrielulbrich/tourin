@@ -7,6 +7,7 @@ import {
 } from 'typeorm';
 import { OptionsEntity } from './options.entity';
 
+// todo: make it MANY TO MANY
 @Entity({ name: 'languages' })
 export class LanguagesEntity {
   @PrimaryGeneratedColumn()

@@ -6,7 +6,7 @@ import { AvailabilitiesEntity } from '../entities/availabilities.entity';
 import { AvailabilityOptionsFilterDto } from '../dto/availability-options-filter.dto';
 
 @Injectable()
-export class ExperiencesRepository implements IExperienceRepository {
+export class ProductsRepository implements IExperienceRepository {
   constructor(private readonly entityManager: EntityManager) {}
 
   async getOverview(id: number): Promise<ProductsEntity> {
@@ -21,9 +21,7 @@ export class ExperiencesRepository implements IExperienceRepository {
           schedule: {
             timeSlots: true,
           },
-          pricing: {
-            pricingCategories: true,
-          },
+          pricing: true,
         },
       },
     });

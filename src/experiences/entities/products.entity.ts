@@ -17,17 +17,11 @@ export class ProductsEntity {
   @Column({ type: 'enum', enum: ['ticket', 'tour', 'transfer'] })
   type: string;
 
-  @Column({ type: 'varchar', length: 36 })
+  @Column({ type: 'varchar', length: 255 })
   title: string;
 
   @Column({ type: 'longtext' })
   about: string;
-
-  @Column({ type: 'time' })
-  startTime: string;
-
-  @Column({ type: 'time' })
-  endTime: string;
 
   @Column({ type: 'varchar', length: 50 })
   city: string;

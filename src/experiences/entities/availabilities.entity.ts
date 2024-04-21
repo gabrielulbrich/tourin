@@ -15,8 +15,8 @@ export class AvailabilitiesEntity {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @Column({ type: 'integer' })
-  vacancies: number;
+  @Column({ type: 'enum', enum: ['opening_hours', 'starting_times'] })
+  type: 'opening_hours' | 'starting_times';
 
   @Column({ type: 'date' })
   startFrom: Date;
