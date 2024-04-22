@@ -12,16 +12,22 @@ export class ArticleService {
     private readonly blogRepository: IArticleRepository,
   ) {}
 
-  create(createArticleDto: CreateArticleDto): Promise<ArticleEntity> {
-    return this.blogRepository.create(createArticleDto);
+  async create(createArticleDto: CreateArticleDto): Promise<ArticleEntity> {
+    return await this.blogRepository.create(createArticleDto);
   }
 
-  findAll(): Promise<ArticleEntity[]> {
-    return this.blogRepository.findAll();
+  async findAll(): Promise<ArticleEntity[]> {
+    const articles = await this.blogRepository.findAll();
+    articles[0].title = 'Hello';
+    return articles;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} blog`;
+  async findOne(id: number): Promise<ArticleEntity> {
+    const article = await this.blogRepository.findOne(id);
+    if (!article) {
+      throw new Error(`Article with id ${id} not found`);
+    }
+    return article;
   }
 
   update(id: number, updateBlogDto: UpdateArticleDto) {

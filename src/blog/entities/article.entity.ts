@@ -7,4 +7,7 @@ export class ArticleEntity {
 
   @Column({ type: 'varchar', length: 255 })
   title: string;
+
+  @Column({ type: 'varchar', length: 255 })
+  text: string;
 }

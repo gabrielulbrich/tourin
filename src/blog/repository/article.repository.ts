@@ -14,11 +14,15 @@ export class ArticleRepository implements IArticleRepository {
     });
   }
 
-  async findOne(categoryId: number): Promise<ArticleEntity> {
-    return null;
+  async findOne(id: number): Promise<ArticleEntity> {
+    return await this.entityManager.findOne(ArticleEntity, { where: { id } });
   }
 
   async findAll(): Promise<ArticleEntity[]> {
-    return this.entityManager.find(ArticleEntity, {});
+    return await this.entityManager.find(ArticleEntity, {
+      select: {
+        title: true,
+      },
+    });
   }
 }
