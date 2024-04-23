@@ -17,9 +17,9 @@ export class ArticleService {
   }
 
   async findAll(): Promise<ArticleEntity[]> {
-    const articles = await this.blogRepository.findAll();
-    articles[0].title = 'Hello';
-    return articles;
+    const article = await this.blogRepository.findAll();
+    article[0].title = 'Hello';
+    return article;
   }
 
   async findOne(id: number): Promise<ArticleEntity> {
@@ -30,11 +30,14 @@ export class ArticleService {
     return article;
   }
 
-  update(id: number, updateBlogDto: UpdateArticleDto) {
-    return `This action updates a #${id} blog`;
+  async update(id: number, updateBlogDto: UpdateArticleDto) {
+    const article = await this.blogRepository.update(id, updateBlogDto);
+    return article;
+    //return `This action updates a #${id} blog`;
   }
 
-  remove(id: number) {
+  async remove(id: number) {
+    const article = await this.blogRepository.remove(id);
     return `This action removes a #${id} blog`;
   }
 }
