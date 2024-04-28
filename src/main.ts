@@ -3,6 +3,8 @@ dotenv.config();
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import * as path from 'node:path';
+import { writeFileSync } from 'fs';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -15,6 +17,10 @@ async function bootstrap() {
     .build();
   const document = SwaggerModule.createDocument(app, swaggerConfig);
   SwaggerModule.setup('docs', app, document);
+  const outputPath = path.resolve(process.cwd(), 'swagger.json');
+  writeFileSync(outputPath, JSON.stringify(document, null, 4), {
+    encoding: 'utf8',
+  });
 
   if (process.env.DATABASE_MIGRATION !== 'true') {
     await app.listen(3000);

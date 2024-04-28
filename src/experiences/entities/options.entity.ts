@@ -1,16 +1,14 @@
 import {
   Column,
   Entity,
-  JoinColumn, ManyToMany,
   ManyToOne,
   OneToMany,
-  PrimaryGeneratedColumn
+  PrimaryGeneratedColumn,
 } from 'typeorm';
 import { AvailabilitiesEntity } from './availabilities.entity';
 import { ProductsEntity } from './products.entity';
 import { PricingEntity } from './pricing.entity';
 import { ScheduleEntity } from './schedule.entity';
-import { LanguagesEntity } from './languages.entity';
 import { LanguagesToOptionsEntity } from '@src/experiences/entities/languages-to-options.entity';
 
 @Entity({ name: 'options' })
@@ -33,6 +31,11 @@ export class OptionsEntity {
       'This means that only one group or person can participate. There won’t be other customers in the same activity.',
   })
   isPrivate: boolean;
+
+  @Column({
+    type: 'boolean',
+  })
+  isActive: boolean;
 
   @Column({ type: 'json', nullable: true })
   duration: {
@@ -61,7 +64,10 @@ export class OptionsEntity {
   //  //  // The day before the activity takes place
   //  //  // Within 24 hours after they book
 
-  @OneToMany(() => LanguagesToOptionsEntity, (languagesToOptions) => languagesToOptions.option)
+  @OneToMany(
+    () => LanguagesToOptionsEntity,
+    (languagesToOptions) => languagesToOptions.option,
+  )
   languagesToOptions: LanguagesToOptionsEntity[];
 
   @ManyToOne(() => ProductsEntity, (product) => product.options)
@@ -71,11 +77,11 @@ export class OptionsEntity {
     () => AvailabilitiesEntity,
     (availabilities) => availabilities.options,
   )
-  availabilities: AvailabilitiesEntity;
+  availabilities: AvailabilitiesEntity[];
 
   @OneToMany(() => ScheduleEntity, (schedule) => schedule.options)
-  schedule: ScheduleEntity;
+  schedule: ScheduleEntity[];
 
   @OneToMany(() => PricingEntity, (pricing) => pricing.options)
-  pricing: PricingEntity;
+  pricing: PricingEntity[];
 }

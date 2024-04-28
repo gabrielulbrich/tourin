@@ -15,14 +15,17 @@ export class AvailabilitiesEntity {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @Column({ type: 'enum', enum: ['opening_hours', 'starting_times'] })
+  @Column({
+    type: 'enum',
+    enum: ['opening_hours', 'starting_times'],
+  })
   type: 'opening_hours' | 'starting_times';
 
   @Column({ type: 'date' })
-  startFrom: Date;
+  startDate: Date;
 
   @Column({ type: 'date' })
-  end: Date;
+  endDate: Date;
 
   @OneToMany(() => ScheduleEntity, (schedule) => schedule.availabilities)
   schedule: ScheduleEntity[];

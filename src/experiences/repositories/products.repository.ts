@@ -3,7 +3,8 @@ import { Injectable } from '@nestjs/common';
 import { IExperienceRepository } from '../interfaces/experiences.interface';
 import { ProductsEntity } from '../entities/products.entity';
 import { AvailabilitiesEntity } from '../entities/availabilities.entity';
-import { AvailabilityOptionsFilterDto } from '../dto/availability-options-filter.dto';
+import { AvailableOptionsFilterDto } from '../dto/available-options-filter.dto';
+import { OptionsEntity } from '@src/experiences/entities/options.entity';
 
 @Injectable()
 export class ProductsRepository implements IExperienceRepository {
@@ -27,13 +28,20 @@ export class ProductsRepository implements IExperienceRepository {
     });
   }
 
-  async getAvailability(
+  async getOptions(
     id: number,
-    availability: AvailabilityOptionsFilterDto,
-  ): Promise<AvailabilitiesEntity> {
-    return await this.entityManager.findOne(AvailabilitiesEntity, {
+    options: AvailableOptionsFilterDto,
+  ): Promise<OptionsEntity[]> {
+    return await this.entityManager.find(OptionsEntity, {
       where: {
         id: id,
+      },
+      relations: {
+        availabilities: {
+          schedule: {
+            timeSlots: true,
+          },
+        },
       },
     });
   }

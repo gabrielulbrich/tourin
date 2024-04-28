@@ -13,13 +13,16 @@ export class TimeSlotsEntity {
   id!: number;
 
   @Column({ type: 'time' })
-  from: string; //time
+  from: string;
 
   @Column({ type: 'time' })
-  to: string; //time
+  to: string;
 
   @Column({ type: 'integer' })
   capacity: number;
+
+  @Column({ type: 'integer' })
+  vacancies: number;
 
   @ManyToOne(() => ScheduleEntity, (schedule) => schedule.timeSlots)
   @JoinColumn({ name: 'schedule_id' })
