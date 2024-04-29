@@ -1,7 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from 'typeorm';
-import { CategoriesEntity } from '@src/blog/entities/categories';
-import { AuthorEntity } from '@src/blog/entities/author';
-export class TagsEntity {}
+import { CategoriesEntity } from '@src/blog/entities/categories.entity';
+import { AuthorEntity } from '@src/blog/entities/author.entity';
 
 @Entity('article', { database: 'blog' })
 export class ArticleEntity {

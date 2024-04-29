@@ -1,5 +1,6 @@
 import { Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
-import { ArticleEntity, TagsEntity } from '@src/blog/entities/article.entity';
+import { ArticleEntity } from '@src/blog/entities/article.entity';
+import { TagsEntity } from '@src/blog/entities/tags.entity';
 
 @Entity('tags_to_articles', { database: 'blog' })
 export class TagsToArticlesEntity {
