@@ -1,12 +1,13 @@
 import { ProductsEntity } from '../entities/products.entity';
 import { AvailabilitiesEntity } from '../entities/availabilities.entity';
-import { AvailabilityOptionsFilterDto } from '../dto/availability-options-filter.dto';
+import { AvailableOptionsFilterDto } from '../dto/available-options-filter.dto';
+import { OptionsEntity } from '@src/experiences/entities/options.entity';
 
 export interface IExperienceRepository {
   getOverview(id: number): Promise<ProductsEntity>;
-  getAvailability(
+  getOptions(
     id: number,
-    availability: AvailabilityOptionsFilterDto,
-  ): Promise<AvailabilitiesEntity>;
+    options: AvailableOptionsFilterDto,
+  ): Promise<OptionsEntity[]>;
   getAttractionsByCategory(categoryId: number): Promise<ProductsEntity>;
 }
