@@ -4,6 +4,7 @@ import {
   JoinColumn,
   ManyToOne,
   OneToMany,
+  OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { OptionsEntity } from './options.entity';
@@ -21,16 +22,16 @@ export class AvailabilitiesEntity {
   })
   type: 'opening_hours' | 'starting_times';
 
-  @Column({ type: 'date' })
+  @Column({ type: 'datetime' })
   startDate: Date;
 
-  @Column({ type: 'date' })
+  @Column({ type: 'datetime' })
   endDate: Date;
 
   @OneToMany(() => ScheduleEntity, (schedule) => schedule.availabilities)
   schedule: ScheduleEntity[];
 
-  @ManyToOne(() => OptionsEntity, (options) => options.availabilities)
+  @OneToOne(() => OptionsEntity, (options) => options.availability)
   @JoinColumn({ name: 'option_id' })
   options: OptionsEntity;
 

@@ -3,12 +3,11 @@ import { CategoriesRepository } from '../repositories/categories.repository';
 import {
   CATEGORIES_REPOSITORY_TOKEN,
   EXPERIENCES_REPOSITORY_TOKEN,
+  WEEKDAYS,
 } from '@src/experiences/utils/constants.const';
 import { ProductsRepository } from '../repositories/products.repository';
-import { AvailableOptionsFilterDto } from '../dto/available-options-filter.dto';
-import { AvailableOptionsDto } from '@src/experiences/dto/available-options.dto';
+import { AvailableOptionsInputDto } from '../dto/available-options-input.dto';
 import { OptionsEntity } from '@src/experiences/entities/options.entity';
-import { AvailabilitiesEntity } from '@src/experiences/entities/availabilities.entity';
 
 @Injectable()
 export class ExperiencesService {
@@ -26,48 +25,47 @@ export class ExperiencesService {
 
   async getAvailabilityAndPricing(
     id: number,
-    availabilityDto: AvailableOptionsFilterDto,
-  ): Promise<AvailableOptionsDto> {
-    console.log(availabilityDto);
-    // const participants = availabilityDto.participants;
-    // const categories = availabilityDto.categories;
-    // console.log(participants, categories);
+    input: AvailableOptionsInputDto,
+  ): Promise<any> {
     const options: OptionsEntity[] =
-      await this.experiencesRepository.getOptions(id, availabilityDto);
-
-    const timeAvailabilities = this.getTimeAvailabilities(options[0]);
-
-    // return options;
-
-    // const price = this.getPrice(options);
-    //
+      await this.experiencesRepository.getOptions(id, input);
 
     return {
-      productId: options[0].product.id,
+      productId: 0,
       options: options.map((option) => {
+        const isValidDate = this.isValidDate(input, option);
+        const isOptionAvailableOnDate = this.isOptionAvailableOnDate(
+          input,
+          option,
+        );
+        const isAvailable = isValidDate && isOptionAvailableOnDate;
+        let nextAvailableDate = null;
+        if (isValidDate && !isOptionAvailableOnDate) {
+          nextAvailableDate = this.getNextAvailableDate(input, option);
+        }
         return {
           id: option.id,
           title: option.title,
-          duration: option.duration.unit as string,
-          isAvailable: option.isActive,
-          nextAvailableDate: new Date(),
+          duration: '3 hours',
+          isAvailable: isAvailable,
+          nextAvailableDate: nextAvailableDate,
           unavailabilityReason: '',
-          languages: option.languagesToOptions.map((languagesToOption) => {
+          languages: option.languagesToOptions?.map((languagesToOption) => {
             return {
               id: languagesToOption.id,
               isoCode: languagesToOption.language.isoCode,
               language: languagesToOption.language.language,
             };
           }),
-          availabilities: option.availabilities.map((availability) => {
+          availabilities: option.availability.schedule.map((availability) => {
             return {
               vacancies: 0,
-              availabilityType: availability.type as string,
+              availabilityType: option.availability.type as string,
               startTime: '',
               endTime: '',
               unformattedStartTime: '',
               unformattedEndTime: '',
-              priceBreakdown: option.pricing.map((price) => {
+              priceBreakdown: option.pricing?.map((price) => {
                 return {
                   title: price.currency,
                   totalParticipants: 0,
@@ -103,18 +101,58 @@ export class ExperiencesService {
     };
   }
 
-  private getTimeAvailabilities(options: OptionsEntity) {
-    return options.pricing.map((pricing) => {
-      return {
-        id: pricing.id,
-        price: pricing.price,
-        currency: pricing.currency,
-        minAge: pricing.minAge,
-        maxAge: pricing.maxAge,
-        participantsType: pricing.participantsType,
-        ticketCategory: pricing.ticketCategory,
-        commissionRate: pricing.commissionRate,
-      };
+  isOptionAvailableOnDate(
+    input: AvailableOptionsInputDto,
+    option: OptionsEntity,
+  ): boolean {
+    const weekday = WEEKDAYS[input.date.getDay()];
+
+    const scheduleWeekdays = [];
+    option.availability.schedule.forEach((schedule) => {
+      scheduleWeekdays.push(schedule.weekday);
     });
+
+    return scheduleWeekdays.includes(weekday);
+  }
+
+  isValidDate(input: AvailableOptionsInputDto, option: OptionsEntity): boolean {
+    if (input.date < option.availability.startDate) return false;
+    if (input.date > option.availability.endDate) return false;
+
+    return true;
+  }
+
+  getNextAvailableDate(
+    input: AvailableOptionsInputDto,
+    option: OptionsEntity,
+  ): any {
+    const weekday = WEEKDAYS[input.date.getDay()];
+
+    const scheduleWeekdays = [];
+    option.availability.schedule.forEach((schedule) => {
+      scheduleWeekdays.push(schedule.weekday);
+    });
+
+    const inputDayIndex = WEEKDAYS.indexOf(weekday);
+    const daysUntilNextAvailableWeekday = this.daysUntilNextAvailableWeekday(
+      inputDayIndex,
+      scheduleWeekdays,
+    );
+
+    return new Date(
+      input.date.getTime() +
+        daysUntilNextAvailableWeekday * 24 * 60 * 60 * 1000,
+    );
+  }
+
+  daysUntilNextAvailableWeekday(currentDay, availableWeekDays) {
+    const currentDayIndex = WEEKDAYS.indexOf(currentDay);
+
+    let nextAvailableIndex = currentDayIndex + 1;
+    while (!availableWeekDays.includes(WEEKDAYS[nextAvailableIndex % 7])) {
+      nextAvailableIndex++;
+    }
+
+    return nextAvailableIndex - currentDayIndex;
   }
 }

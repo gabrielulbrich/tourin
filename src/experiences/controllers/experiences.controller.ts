@@ -1,9 +1,8 @@
-import { Body, Controller, Get, Param, Query } from '@nestjs/common';
+import { Controller, Get, Param, Query } from '@nestjs/common';
 import { ExperiencesService } from '../services/experiences.service';
 import { ApiTags } from '@nestjs/swagger';
-import { AvailabilitiesEntity } from '../entities/availabilities.entity';
 import { ProductsEntity } from '../entities/products.entity';
-import { AvailableOptionsFilterDto } from '../dto/available-options-filter.dto';
+import { AvailableOptionsInputDto } from '../dto/available-options-input.dto';
 import { AvailableOptionsDto } from '@src/experiences/dto/available-options.dto';
 
 @Controller('experiences')
@@ -19,7 +18,7 @@ export class ExperiencesController {
   @Get(':id/available-options')
   availability(
     @Param('id') id: number,
-    @Query() options: AvailableOptionsFilterDto,
+    @Query() options: AvailableOptionsInputDto,
   ): Promise<AvailableOptionsDto> {
     return this.experiencesService.getAvailabilityAndPricing(id, options);
   }
