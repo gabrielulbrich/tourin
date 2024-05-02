@@ -1,7 +1,8 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsArray, IsNumber, ValidateNested } from 'class-validator';
+import { Transform } from 'class-transformer';
 
-export class AvailableOptionsFilterDto {
+export class AvailableOptionsInputDto {
+  @Transform(({ value }) => new Date(value))
   @ApiProperty()
   date: Date;
 

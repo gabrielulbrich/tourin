@@ -10,6 +10,7 @@ import { AvailabilitiesEntity } from './availabilities.entity';
 import { TimeSlotsEntity } from './time-slots.entity';
 import { ProductsEntity } from './products.entity';
 import { OptionsEntity } from './options.entity';
+import { WEEKDAYS } from '@src/experiences/utils/constants.const';
 
 @Entity({ name: 'schedule' })
 export class ScheduleEntity {
@@ -18,18 +19,9 @@ export class ScheduleEntity {
 
   @Column({
     type: 'enum',
-    enum: [
-      'monday',
-      'tuesday',
-      'wednesday',
-      'thursday',
-      'friday',
-      'saturday',
-      'sunday',
-      'special',
-    ],
+    enum: WEEKDAYS,
   })
-  day: string;
+  weekday: string;
 
   @Column({ type: 'date', nullable: true })
   date: Date; // in case of special date.

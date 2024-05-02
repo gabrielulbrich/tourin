@@ -3,6 +3,7 @@ import {
   Entity,
   ManyToOne,
   OneToMany,
+  OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { AvailabilitiesEntity } from './availabilities.entity';
@@ -73,11 +74,11 @@ export class OptionsEntity {
   @ManyToOne(() => ProductsEntity, (product) => product.options)
   product: ProductsEntity;
 
-  @OneToMany(
+  @OneToOne(
     () => AvailabilitiesEntity,
     (availabilities) => availabilities.options,
   )
-  availabilities: AvailabilitiesEntity[];
+  availability: AvailabilitiesEntity;
 
   @OneToMany(() => ScheduleEntity, (schedule) => schedule.options)
   schedule: ScheduleEntity[];
