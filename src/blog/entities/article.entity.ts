@@ -2,7 +2,7 @@ import { Column, Entity, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from 't
 import { CategoriesEntity } from '@src/blog/entities/categories.entity';
 import { AuthorEntity } from '@src/blog/entities/author.entity';
 
-@Entity('article', { database: 'blog' })
+@Entity('articles', { database: 'blog' })
 export class ArticleEntity {
   @PrimaryGeneratedColumn()
   id!: number;
@@ -19,11 +19,17 @@ export class ArticleEntity {
   @Column({ type: 'varchar', length: 255 })
   content: string;
 
-  @Column({ type: 'varchar', length: 255 })
-  created_at: string;
+  @Column({ type: 'datetime', default: () => 'CURRENT_TIMESTAMP' })
+  createdAt: Date;
 
-  @Column({ type: 'varchar', length: 255 })
-  updated_at: string;
+  @Column({ type: 'datetime', default: () => 'CURRENT_TIMESTAMP' })
+  updatedAt: Date;
+
+  @Column({ name: 'author_id' })
+  authorId: number;
+
+  @Column({ name: 'categories_id' })
+  categoriesId: number;
 
   @ManyToOne(() => CategoriesEntity)
   @JoinColumn({ name: 'categories_id' })
@@ -33,4 +39,3 @@ export class ArticleEntity {
   @JoinColumn({ name: 'author_id' })
   author: AuthorEntity;
 }
-

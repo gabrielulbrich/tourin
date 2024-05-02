@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { ArticleEntity } from '@src/blog/entities/article.entity';
 
 @Entity('author', { database: 'blog' })
 export class AuthorEntity {
@@ -12,5 +13,8 @@ export class AuthorEntity {
   surname: string;
 
   @Column({ type: 'varchar', length: 255 })
-  profile_photo_url: string;
+  profilePhotoUrl: string;
+
+  @OneToMany(() => ArticleEntity, (article) => article.author)
+  author: AuthorEntity[];
 }
