@@ -38,7 +38,7 @@ export class OptionsEntity {
   })
   isActive: boolean;
 
-  @Column({ type: 'json', nullable: true })
+  @Column({ type: 'json' })
   duration: {
     unit: 'minutes' | 'hours' | 'days';
     value: number;
@@ -69,7 +69,7 @@ export class OptionsEntity {
     () => LanguagesToOptionsEntity,
     (languagesToOptions) => languagesToOptions.option,
   )
-  languagesToOptions: LanguagesToOptionsEntity[];
+  languagesOptions: LanguagesToOptionsEntity[];
 
   @ManyToOne(() => ProductsEntity, (product) => product.options)
   product: ProductsEntity;

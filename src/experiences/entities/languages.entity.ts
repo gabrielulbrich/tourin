@@ -22,5 +22,5 @@ export class LanguagesEntity {
   language: string;
 
   @OneToMany(() => LanguagesToOptionsEntity, (languagesToOptions) => languagesToOptions.language)
-  languagesToOptions: LanguagesToOptionsEntity[];
+  languagesOptions: LanguagesToOptionsEntity[];
 }

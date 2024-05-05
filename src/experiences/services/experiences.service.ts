@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@nestjs/common';
+import { HttpException, Inject, Injectable } from '@nestjs/common';
 import { CategoriesRepository } from '../repositories/categories.repository';
 import {
   CATEGORIES_REPOSITORY_TOKEN,
@@ -38,51 +38,35 @@ export class ExperiencesService {
           input,
           option,
         );
-        const isAvailable = isValidDate && isOptionAvailableOnDate;
-        let nextAvailableDate = null;
-        if (isValidDate && !isOptionAvailableOnDate) {
-          nextAvailableDate = this.getNextAvailableDate(input, option);
-        }
+        const price = this.getPrice(input, option);
+        const inputWeekday = this.getInputWeekday(input);
         return {
           id: option.id,
           title: option.title,
-          duration: '3 hours',
-          isAvailable: isAvailable,
-          nextAvailableDate: nextAvailableDate,
-          unavailabilityReason: '',
-          languages: option.languagesToOptions?.map((languagesToOption) => {
+          duration: this.getDuration(option),
+          languages: option.languagesOptions?.map((languagesToOption) => {
             return {
               id: languagesToOption.id,
               isoCode: languagesToOption.language.isoCode,
               language: languagesToOption.language.language,
             };
           }),
-          availabilities: option.availability.schedule.map((availability) => {
-            return {
-              vacancies: 0,
-              availabilityType: option.availability.type as string,
-              startTime: '',
-              endTime: '',
-              unformattedStartTime: '',
-              unformattedEndTime: '',
-              priceBreakdown: option.pricing?.map((price) => {
+          availabilities: option.schedule
+            .filter((schedules) => inputWeekday === schedules.weekday)
+            .map((schedule) => {
+              return schedule.timeSlots.map((timeSlot) => {
+                console.log(timeSlot);
                 return {
-                  title: price.currency,
-                  totalParticipants: 0,
-                  totalPrice: 0,
-                  pricePerPerson: 0,
-                  priceLabel: '',
-                  pricingCategoryCode: 0,
+                  vacancies: timeSlot.vacancies,
+                  availabilityType: option.availability.type as string,
+                  startTime: timeSlot.from,
+                  endTime: timeSlot.to,
+                  unformattedStartTime: timeSlot.from,
+                  unformattedEndTime: timeSlot.to,
+                  ...price,
                 };
-              }),
-              price: {
-                basePrice: 0,
-                formattedBasePrice: '',
-                currency: '',
-                currencySymbol: '',
-              },
-            };
-          }),
+              });
+            }),
           cancellation: {
             isCancelable: false,
             cancellationOffset: 0,
@@ -105,19 +89,49 @@ export class ExperiencesService {
     input: AvailableOptionsInputDto,
     option: OptionsEntity,
   ): boolean {
-    const weekday = WEEKDAYS[input.date.getDay()];
+    const weekday = this.getInputWeekday(input);
 
     const scheduleWeekdays = [];
-    option.availability.schedule.forEach((schedule) => {
+    option.schedule.forEach((schedule) => {
       scheduleWeekdays.push(schedule.weekday);
     });
 
-    return scheduleWeekdays.includes(weekday);
+    if (!scheduleWeekdays.includes(weekday)) {
+      throw new HttpException(
+        {
+          message: `This date is not available. Please select a different date.`,
+          nextAvailableDate: this.getNextAvailableDate(input, option),
+        },
+        404,
+      );
+    }
+
+    return true;
+  }
+
+  getInputWeekday(input: AvailableOptionsInputDto): string {
+    return WEEKDAYS[input.date.getDay()];
   }
 
   isValidDate(input: AvailableOptionsInputDto, option: OptionsEntity): boolean {
-    if (input.date < option.availability.startDate) return false;
-    if (input.date > option.availability.endDate) return false;
+    if (input.date < option.availability.startDate) {
+      throw new HttpException(
+        `The requested date ${input.date.toDateString()} is invalid`,
+        400,
+      );
+    }
+
+    if (
+      option.availability.endDate &&
+      input.date > option.availability.endDate
+    ) {
+      throw new HttpException(
+        {
+          message: `The requested date ${input.date.toDateString()} is invalid`,
+        },
+        400,
+      );
+    }
 
     return true;
   }
@@ -154,5 +168,51 @@ export class ExperiencesService {
     }
 
     return nextAvailableIndex - currentDayIndex;
+  }
+
+  getDuration(option: OptionsEntity): string {
+    return `${option.duration.value} ${option.duration.unit}`;
+  }
+
+  getPrice(input: AvailableOptionsInputDto, option: OptionsEntity): any {
+    const pricesBreakdown = input.categories.map((category, i) => {
+      const pricing = option.pricing.find(
+        (price) => price.ticketCategory === category,
+      );
+
+      if (!pricing) {
+        throw new HttpException(
+          { message: `Category ${category} not found` },
+          404,
+        );
+      }
+
+      return {
+        title: pricing.ticketCategory,
+        totalParticipants: input.participants[i],
+        totalPrice: pricing.price * Number(input.participants[i]),
+        participantsCategoryIdentifier: `(Age ${pricing.ageFrom} - ${pricing.ageTo})`,
+        pricePerPerson: pricing.price,
+        currencySymbol: pricing.currencySymbol,
+        currencyIso: pricing.currencyIso,
+      };
+    });
+
+    let finalPrice = 0;
+    pricesBreakdown.forEach((price) => {
+      finalPrice = price.totalPrice + finalPrice;
+    });
+
+    const price = {
+      basePrice: finalPrice,
+      formattedBasePrice: `${pricesBreakdown[0].currencySymbol} ${finalPrice}`,
+      currency: pricesBreakdown[0].currencyIso,
+      currencySymbol: pricesBreakdown[0].currencySymbol,
+    };
+
+    return {
+      pricesBreakdown,
+      price,
+    };
   }
 }

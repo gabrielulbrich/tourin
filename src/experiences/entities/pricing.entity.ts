@@ -28,13 +28,16 @@ export class PricingEntity {
   price: number;
 
   @Column({ type: 'varchar' })
-  currency: string;
+  currencyIso: string;
+
+  @Column({ type: 'varchar' })
+  currencySymbol: string;
 
   @Column({ type: 'integer' })
-  minAge: number;
+  ageFrom: number;
 
   @Column({ type: 'integer' })
-  maxAge: number;
+  ageTo: number;
 
   @Column({ type: 'enum', enum: ['individual', 'group'] })
   participantsType: 'individual' | 'group';

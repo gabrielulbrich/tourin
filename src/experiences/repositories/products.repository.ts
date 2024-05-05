@@ -18,6 +18,9 @@ export class ProductsRepository implements IExperienceRepository {
         images: true,
         keywords: true,
         options: {
+          languagesOptions: {
+            language: true,
+          },
           availability: {
             schedule: {
               timeSlots: true,
@@ -38,10 +41,13 @@ export class ProductsRepository implements IExperienceRepository {
         id: id,
       },
       relations: {
-        availability: {
-          schedule: {
-            timeSlots: true,
-          },
+        pricing: true,
+        languagesOptions: {
+          language: true,
+        },
+        availability: true,
+        schedule: {
+          timeSlots: true,
         },
       },
     });

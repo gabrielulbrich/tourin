@@ -25,7 +25,7 @@ export class AvailabilitiesEntity {
   @Column({ type: 'datetime' })
   startDate: Date;
 
-  @Column({ type: 'datetime' })
+  @Column({ type: 'datetime', nullable: true })
   endDate: Date;
 
   @OneToMany(() => ScheduleEntity, (schedule) => schedule.availabilities)
