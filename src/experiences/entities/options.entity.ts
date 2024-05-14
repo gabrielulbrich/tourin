@@ -1,6 +1,7 @@
 import {
   Column,
   Entity,
+  ManyToMany,
   ManyToOne,
   OneToMany,
   OneToOne,
@@ -10,7 +11,10 @@ import { AvailabilitiesEntity } from './availabilities.entity';
 import { ProductsEntity } from './products.entity';
 import { PricingEntity } from './pricing.entity';
 import { ScheduleEntity } from './schedule.entity';
-import { LanguagesToOptionsEntity } from '@src/experiences/entities/languages-to-options.entity';
+import { OptionsDto } from '@src/experiences/dto/options.dto';
+import { Transform } from 'class-transformer';
+import { LanguagesEntity } from '@src/experiences/entities/languages.entity';
+import { JoinTable } from 'typeorm/browser';
 
 @Entity({ name: 'options' })
 export class OptionsEntity {
@@ -65,11 +69,12 @@ export class OptionsEntity {
   //  //  // The day before the activity takes place
   //  //  // Within 24 hours after they book
 
-  @OneToMany(
-    () => LanguagesToOptionsEntity,
-    (languagesToOptions) => languagesToOptions.option,
+  @ManyToMany(
+    () => LanguagesEntity,
+    (languagesToOptions) => languagesToOptions.options,
   )
-  languagesOptions: LanguagesToOptionsEntity[];
+  @JoinTable()
+  languages: LanguagesEntity[];
 
   @ManyToOne(() => ProductsEntity, (product) => product.options)
   product: ProductsEntity;
@@ -85,4 +90,26 @@ export class OptionsEntity {
 
   @OneToMany(() => PricingEntity, (pricing) => pricing.options)
   pricing: PricingEntity[];
+
+  @Transform(() => OptionsDto)
+  toDto(): OptionsDto {
+    return {
+      id: this.id,
+      title: this.title,
+      code: this.code,
+      description: this.description,
+      isPrivate: this.isPrivate,
+      isActive: this.isActive,
+      duration: this.duration,
+      validity: this.validity,
+      cutOff: this.cutOff,
+      whereToMeet: this.whereToMeet,
+      languages: this.languages.map((languageOption) => languageOption.toDto()),
+      availability: this.availability.toDto(),
+      schedule: this.schedule.map((schedule) => schedule.toDto()),
+      pricing: this.pricing.map((pricing) => pricing.toDto()),
+      attributes: [],
+      cancellation: undefined,
+    };
+  }
 }

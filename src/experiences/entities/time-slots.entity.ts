@@ -6,6 +6,8 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { ScheduleEntity } from './schedule.entity';
+import { TimeSlotsDto } from '@src/experiences/dto/time-slots.dto';
+import { Transform } from 'class-transformer';
 
 @Entity({ name: 'time_slots' })
 export class TimeSlotsEntity {
@@ -27,4 +29,15 @@ export class TimeSlotsEntity {
   @ManyToOne(() => ScheduleEntity, (schedule) => schedule.timeSlots)
   @JoinColumn({ name: 'schedule_id' })
   schedule: ScheduleEntity;
+
+  @Transform(() => TimeSlotsDto)
+  toDto(): TimeSlotsDto {
+    return {
+      id: this.id,
+      from: this.from,
+      to: this.to,
+      capacity: this.capacity,
+      vacancies: this.vacancies,
+    };
+  }
 }

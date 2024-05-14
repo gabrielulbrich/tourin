@@ -3,6 +3,8 @@ import { LanguagesDto } from '@src/experiences/dto/languages.dto';
 import { AvailabilityDto } from '@src/experiences/dto/availability.dto';
 import { CancellationDto } from '@src/experiences/dto/cancellation.dto';
 import { AttributesDto } from '@src/experiences/dto/attributes.dto';
+import { ScheduleDto } from '@src/experiences/dto/schedule.dto';
+import { PricingDto } from '@src/experiences/dto/pricing.dto';
 
 export class OptionsDto {
   @ApiProperty()
@@ -12,26 +14,51 @@ export class OptionsDto {
   title: string;
 
   @ApiProperty()
-  duration: string;
+  duration: {
+    unit: 'minutes' | 'hours' | 'days';
+    value: number;
+  };
 
   @ApiProperty()
-  isAvailable: boolean;
+  code: string;
 
   @ApiProperty()
-  nextAvailableDate: Date;
+  description: string;
 
   @ApiProperty()
-  unavailabilityReason: string;
+  isPrivate: boolean;
+
+  @ApiProperty()
+  isActive: boolean;
+
+  @ApiProperty()
+  validity: {
+    from: 'time_booked' | 'time_selected' | 'time_activated';
+    unit: 'minutes' | 'hours' | 'days';
+    value: number;
+  };
+
+  @ApiProperty()
+  cutOff: string;
+
+  @ApiProperty()
+  whereToMeet: string;
 
   @ApiProperty({ type: [LanguagesDto] })
   languages: LanguagesDto[];
 
-  @ApiProperty({ type: [AvailabilityDto] })
-  availabilities: AvailabilityDto[];
+  @ApiProperty({ type: AvailabilityDto })
+  availability: AvailabilityDto;
+
+  @ApiProperty()
+  schedule: ScheduleDto[];
 
   @ApiProperty({ type: CancellationDto })
   cancellation: CancellationDto;
 
   @ApiProperty()
   attributes: AttributesDto[];
+
+  @ApiProperty()
+  pricing: PricingDto[];
 }

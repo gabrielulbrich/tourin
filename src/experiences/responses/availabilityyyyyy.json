@@ -1,0 +1,1560 @@
+{
+  "languages": {
+    "availableLanguages": [
+      {
+        "id": 109,
+        "isoCode": "es",
+        "name": "Spanish",
+        "messages": []
+      },
+      {
+        "id": 29,
+        "isoCode": "en",
+        "name": "English",
+        "messages": []
+      },
+      {
+        "id": 23,
+        "isoCode": "zh",
+        "name": "Chinese",
+        "messages": []
+      },
+      {
+        "id": 35,
+        "isoCode": "fr",
+        "name": "French",
+        "messages": []
+      },
+      {
+        "id": 39,
+        "isoCode": "de",
+        "name": "German",
+        "messages": []
+      },
+      {
+        "id": 56,
+        "isoCode": "ja",
+        "name": "Japanese",
+        "messages": []
+      }
+    ],
+    "defaultLanguage": {
+      "id": 29,
+      "isoCode": "en",
+      "name": "English",
+      "messages": []
+    },
+    "messages": []
+  },
+  "activityDates": {
+    "availableDates": [
+      "2024-04-28",
+      "2024-04-29",
+      "2024-04-30",
+      "2024-05-01",
+      "2024-05-02",
+      "2024-05-03",
+      "2024-05-04",
+      "2024-05-05",
+      "2024-05-06",
+      "2024-05-07",
+      "2024-05-08",
+      "2024-05-09",
+      "2024-05-10",
+      "2024-05-11",
+      "2024-05-12",
+      "2024-05-13",
+      "2024-05-14",
+      "2024-05-15",
+      "2024-05-16",
+      "2024-05-17",
+      "2024-05-18",
+      "2024-05-19",
+      "2024-05-20",
+      "2024-05-21",
+      "2024-05-22",
+      "2024-05-23",
+      "2024-05-24",
+      "2024-05-25",
+      "2024-05-26",
+      "2024-05-27",
+      "2024-05-28",
+      "2024-05-29",
+      "2024-05-30",
+      "2024-05-31",
+      "2024-06-01",
+      "2024-06-02",
+      "2024-06-03",
+      "2024-06-04",
+      "2024-06-05",
+      "2024-06-06",
+      "2024-06-07",
+      "2024-06-08",
+      "2024-06-09",
+      "2024-06-10",
+      "2024-06-11",
+      "2024-06-12",
+      "2024-06-13",
+      "2024-06-14",
+      "2024-06-15",
+      "2024-06-16",
+      "2024-06-17",
+      "2024-06-18",
+      "2024-06-19",
+      "2024-06-20",
+      "2024-06-21",
+      "2024-06-22",
+      "2024-06-23",
+      "2024-06-24",
+      "2024-06-25",
+      "2024-06-26",
+      "2024-06-27",
+      "2024-06-28",
+      "2024-06-29",
+      "2024-06-30",
+      "2024-07-01",
+      "2024-07-02",
+      "2024-07-03",
+      "2024-07-04",
+      "2024-07-05",
+      "2024-07-06",
+      "2024-07-07",
+      "2024-07-08",
+      "2024-07-09",
+      "2024-07-10",
+      "2024-07-11",
+      "2024-07-12",
+      "2024-07-13",
+      "2024-07-14",
+      "2024-07-15",
+      "2024-07-16",
+      "2024-07-17",
+      "2024-07-18",
+      "2024-07-19",
+      "2024-07-20",
+      "2024-07-21",
+      "2024-07-22",
+      "2024-07-23",
+      "2024-07-24",
+      "2024-07-25",
+      "2024-07-26",
+      "2024-07-27",
+      "2024-07-28",
+      "2024-07-29",
+      "2024-07-30",
+      "2024-07-31",
+      "2024-08-01",
+      "2024-08-02",
+      "2024-08-03",
+      "2024-08-04",
+      "2024-08-05",
+      "2024-08-06",
+      "2024-08-07",
+      "2024-08-08",
+      "2024-08-09",
+      "2024-08-10",
+      "2024-08-11",
+      "2024-08-12",
+      "2024-08-13",
+      "2024-08-14",
+      "2024-08-15",
+      "2024-08-16",
+      "2024-08-17",
+      "2024-08-18",
+      "2024-08-19",
+      "2024-08-20",
+      "2024-08-21",
+      "2024-08-22",
+      "2024-08-23",
+      "2024-08-24",
+      "2024-08-25",
+      "2024-08-26"
+    ],
+    "dates": [
+      {
+        "date": "2024-04-28",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-04-29",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-04-30",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-05-01",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-05-02",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-05-03",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-05-04",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-05-05",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-05-06",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-05-07",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-05-08",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-05-09",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-05-10",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-05-11",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-05-12",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-05-13",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-05-14",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-05-15",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-05-16",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-05-17",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-05-18",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-05-19",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-05-20",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-05-21",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-05-22",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-05-23",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-05-24",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-05-25",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-05-26",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-05-27",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-05-28",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-05-29",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-05-30",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-05-31",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-06-01",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-06-02",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-06-03",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-06-04",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-06-05",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-06-06",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-06-07",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-06-08",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-06-09",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-06-10",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-06-11",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-06-12",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-06-13",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-06-14",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-06-15",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-06-16",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-06-17",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-06-18",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-06-19",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-06-20",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-06-21",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-06-22",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-06-23",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-06-24",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-06-25",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-06-26",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-06-27",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-06-28",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-06-29",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-06-30",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-07-01",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-07-02",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-07-03",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-07-04",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-07-05",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-07-06",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-07-07",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-07-08",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-07-09",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-07-10",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-07-11",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-07-12",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-07-13",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-07-14",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-07-15",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-07-16",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-07-17",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-07-18",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-07-19",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-07-20",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-07-21",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-07-22",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-07-23",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-07-24",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-07-25",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-07-26",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-07-27",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-07-28",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-07-29",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-07-30",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-07-31",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-08-01",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-08-02",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-08-03",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-08-04",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-08-05",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-08-06",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-08-07",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-08-08",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-08-09",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-08-10",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-08-11",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-08-12",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-08-13",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-08-14",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-08-15",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-08-16",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-08-17",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-08-18",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-08-19",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-08-20",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-08-21",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-08-22",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-08-23",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-08-24",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-08-25",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      },
+      {
+        "date": "2024-08-26",
+        "fromPrice": {
+          "currencyIsoCode": "EUR",
+          "amount": 29.92
+        },
+        "isLikelyToSellout": false,
+        "isCheapestDate": true,
+        "hasDeal": false
+      }
+    ],
+    "dealDates": [],
+    "cheapestDates": [
+      "2024-04-28",
+      "2024-04-29",
+      "2024-04-30",
+      "2024-05-01",
+      "2024-05-02",
+      "2024-05-03",
+      "2024-05-04",
+      "2024-05-05",
+      "2024-05-06",
+      "2024-05-07",
+      "2024-05-08",
+      "2024-05-09",
+      "2024-05-10",
+      "2024-05-11",
+      "2024-05-12",
+      "2024-05-13",
+      "2024-05-14",
+      "2024-05-15",
+      "2024-05-16",
+      "2024-05-17",
+      "2024-05-18",
+      "2024-05-19",
+      "2024-05-20",
+      "2024-05-21",
+      "2024-05-22",
+      "2024-05-23",
+      "2024-05-24",
+      "2024-05-25",
+      "2024-05-26",
+      "2024-05-27",
+      "2024-05-28",
+      "2024-05-29",
+      "2024-05-30",
+      "2024-05-31",
+      "2024-06-01",
+      "2024-06-02",
+      "2024-06-03",
+      "2024-06-04",
+      "2024-06-05",
+      "2024-06-06",
+      "2024-06-07",
+      "2024-06-08",
+      "2024-06-09",
+      "2024-06-10",
+      "2024-06-11",
+      "2024-06-12",
+      "2024-06-13",
+      "2024-06-14",
+      "2024-06-15",
+      "2024-06-16",
+      "2024-06-17",
+      "2024-06-18",
+      "2024-06-19",
+      "2024-06-20",
+      "2024-06-21",
+      "2024-06-22",
+      "2024-06-23",
+      "2024-06-24",
+      "2024-06-25",
+      "2024-06-26",
+      "2024-06-27",
+      "2024-06-28",
+      "2024-06-29",
+      "2024-06-30",
+      "2024-07-01",
+      "2024-07-02",
+      "2024-07-03",
+      "2024-07-04",
+      "2024-07-05",
+      "2024-07-06",
+      "2024-07-07",
+      "2024-07-08",
+      "2024-07-09",
+      "2024-07-10",
+      "2024-07-11",
+      "2024-07-12",
+      "2024-07-13",
+      "2024-07-14",
+      "2024-07-15",
+      "2024-07-16",
+      "2024-07-17",
+      "2024-07-18",
+      "2024-07-19",
+      "2024-07-20",
+      "2024-07-21",
+      "2024-07-22",
+      "2024-07-23",
+      "2024-07-24",
+      "2024-07-25",
+      "2024-07-26",
+      "2024-07-27",
+      "2024-07-28",
+      "2024-07-29",
+      "2024-07-30",
+      "2024-07-31",
+      "2024-08-01",
+      "2024-08-02",
+      "2024-08-03",
+      "2024-08-04",
+      "2024-08-05",
+      "2024-08-06",
+      "2024-08-07",
+      "2024-08-08",
+      "2024-08-09",
+      "2024-08-10",
+      "2024-08-11",
+      "2024-08-12",
+      "2024-08-13",
+      "2024-08-14",
+      "2024-08-15",
+      "2024-08-16",
+      "2024-08-17",
+      "2024-08-18",
+      "2024-08-19",
+      "2024-08-20",
+      "2024-08-21",
+      "2024-08-22",
+      "2024-08-23",
+      "2024-08-24",
+      "2024-08-25",
+      "2024-08-26"
+    ],
+    "firstAvailableDate": "2024-04-28",
+    "messages": []
+  },
+  "pricingCategories": {
+    "categories": [
+      {
+        "id": 1,
+        "title": "Adult",
+        "participantsType": "individual",
+        "participantsCategoryIdentifier": "(Age 13-99)",
+        "minAge": 13,
+        "maxAge": 99,
+        "isAutonomous": true,
+        "minParticipants": 1,
+        "maxParticipants": 5056,
+        "code": 1,
+        "amount": 1
+      },
+      {
+        "id": 2,
+        "title": "Youth",
+        "participantsType": "individual",
+        "participantsCategoryIdentifier": "(Age 4-12)",
+        "minAge": 4,
+        "maxAge": 12,
+        "isAutonomous": true,
+        "minParticipants": 1,
+        "maxParticipants": 5056,
+        "code": 2,
+        "amount": 0
+      },
+      {
+        "id": 3,
+        "title": "Children",
+        "participantsType": "individual",
+        "participantsCategoryIdentifier": "(Age 3 and younger)",
+        "minAge": 0,
+        "maxAge": 3,
+        "isAutonomous": false,
+        "minParticipants": 1,
+        "maxParticipants": 5056,
+        "code": 3,
+        "amount": 0
+      }
+    ],
+    "ageNotes": [
+      "Ages 3 and younger do not require a ticket."
+    ],
+    "categoryNotes": [],
+    "messages": []
+  }
+}

@@ -11,6 +11,8 @@ import { TimeSlotsEntity } from './time-slots.entity';
 import { ProductsEntity } from './products.entity';
 import { OptionsEntity } from './options.entity';
 import { WEEKDAYS } from '@src/experiences/utils/constants.const';
+import { ScheduleDto } from '@src/experiences/dto/schedule.dto';
+import { Transform } from 'class-transformer';
 
 @Entity({ name: 'schedule' })
 export class ScheduleEntity {
@@ -43,4 +45,14 @@ export class ScheduleEntity {
   @ManyToOne(() => OptionsEntity, (experience) => experience.schedule)
   @JoinColumn({ name: 'option_id' })
   options: OptionsEntity;
+
+  @Transform(() => ScheduleDto)
+  toDto(): ScheduleDto {
+    return {
+      id: this.id,
+      weekday: this.weekday,
+      date: this.date,
+      timeSlots: this.timeSlots.map((timeSlot) => timeSlot.toDto()),
+    };
+  }
 }

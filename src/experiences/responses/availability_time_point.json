@@ -1,0 +1,831 @@
+{
+  "availableOptions": {
+    "activityId": 52676,
+    "options": [
+      {
+        "id": 72478,
+        "title": "Cambridge: Explore Harvard University on a Student-Led Tour",
+        "duration": "70 minutes",
+        "isAvailable": true,
+        "nextAvailableDate": "",
+        "unavailabilityReason": "",
+        "startingPoint": {
+          "description": "Meet your guide in the middle of Harvard Square outside the Main Harvard Redline Subway Station next to The Harvard Shop.",
+          "address": "1380 Massachusetts Ave, Cambridge, MA 02138, USA",
+          "coordinates": {
+            "latitude": 42.37330627441406,
+            "longitude": -71.11906433105469,
+            "zoomLevel": 15
+          }
+        },
+        "languages": [],
+        "availabilities": [
+          {
+            "vacancies": 37,
+            "availabilityType": "time_point",
+            "startTime": "10:00 AM",
+            "endTime": "10:00 AM",
+            "unformattedStartTime": "2024-05-09T10:00:00-0400",
+            "unformattedEndTime": "2024-05-09T10:00:00-0400",
+            "priceBreakdown": [
+              {
+                "title": "Adult",
+                "totalParticipants": 2,
+                "totalPrice": "€ 42.74",
+                "participantsCategoryIdentifier": "(Age 18-64)",
+                "pricePerPerson": "€ 21.37",
+                "priceLabel": "",
+                "pricePerPersonDetail": {
+                  "value": 21.3700008392334,
+                  "formattedValue": "€ 21.37",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "totalPriceDetail": {
+                  "value": 42.7400016784668,
+                  "formattedValue": "€ 42.74",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "pricingCategoryCode": 1
+              },
+              {
+                "title": "Infant",
+                "totalParticipants": 1,
+                "totalPrice": "€ 0",
+                "participantsCategoryIdentifier": "(Age 3 and younger)",
+                "pricePerPerson": "€ 0",
+                "priceLabel": "",
+                "pricePerPersonDetail": {
+                  "value": 0.0,
+                  "formattedValue": "€ 0",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "totalPriceDetail": {
+                  "value": 0.0,
+                  "formattedValue": "€ 0",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "pricingCategoryCode": 4
+              },
+              {
+                "title": "Children",
+                "totalParticipants": 1,
+                "totalPrice": "€ 19.51",
+                "participantsCategoryIdentifier": "(Age 4-17)",
+                "pricePerPerson": "€ 19.51",
+                "priceLabel": "",
+                "pricePerPersonDetail": {
+                  "value": 19.510000228881836,
+                  "formattedValue": "€ 19.51",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "totalPriceDetail": {
+                  "value": 19.510000228881836,
+                  "formattedValue": "€ 19.51",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "pricingCategoryCode": 3
+              }
+            ],
+            "price": {
+              "startingPrice": 62.25,
+              "formattedStartingPrice": "€ 62.25",
+              "unformattedBookingFee": 0.0,
+              "currency": "EUR",
+              "currencySymbol": "€",
+              "priceCategory": "individual",
+              "priceCategoryLabel": "",
+              "unformattedDiscountPercentage": 0,
+              "basePrice": 62.25,
+              "formattedBasePrice": "€ 62.25"
+            }
+          },
+          {
+            "vacancies": 28,
+            "availabilityType": "time_point",
+            "startTime": "10:30 AM",
+            "endTime": "10:30 AM",
+            "unformattedStartTime": "2024-05-09T10:30:00-0400",
+            "unformattedEndTime": "2024-05-09T10:30:00-0400",
+            "priceBreakdown": [
+              {
+                "title": "Adult",
+                "totalParticipants": 2,
+                "totalPrice": "€ 42.74",
+                "participantsCategoryIdentifier": "(Age 18-64)",
+                "pricePerPerson": "€ 21.37",
+                "priceLabel": "",
+                "pricePerPersonDetail": {
+                  "value": 21.3700008392334,
+                  "formattedValue": "€ 21.37",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "totalPriceDetail": {
+                  "value": 42.7400016784668,
+                  "formattedValue": "€ 42.74",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "pricingCategoryCode": 1
+              },
+              {
+                "title": "Infant",
+                "totalParticipants": 1,
+                "totalPrice": "€ 0",
+                "participantsCategoryIdentifier": "(Age 3 and younger)",
+                "pricePerPerson": "€ 0",
+                "priceLabel": "",
+                "pricePerPersonDetail": {
+                  "value": 0.0,
+                  "formattedValue": "€ 0",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "totalPriceDetail": {
+                  "value": 0.0,
+                  "formattedValue": "€ 0",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "pricingCategoryCode": 4
+              },
+              {
+                "title": "Children",
+                "totalParticipants": 1,
+                "totalPrice": "€ 19.51",
+                "participantsCategoryIdentifier": "(Age 4-17)",
+                "pricePerPerson": "€ 19.51",
+                "priceLabel": "",
+                "pricePerPersonDetail": {
+                  "value": 19.510000228881836,
+                  "formattedValue": "€ 19.51",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "totalPriceDetail": {
+                  "value": 19.510000228881836,
+                  "formattedValue": "€ 19.51",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "pricingCategoryCode": 3
+              }
+            ],
+            "price": {
+              "startingPrice": 62.25,
+              "formattedStartingPrice": "€ 62.25",
+              "unformattedBookingFee": 0.0,
+              "currency": "EUR",
+              "currencySymbol": "€",
+              "priceCategory": "individual",
+              "priceCategoryLabel": "",
+              "unformattedDiscountPercentage": 0,
+              "basePrice": 62.25,
+              "formattedBasePrice": "€ 62.25"
+            }
+          },
+          {
+            "vacancies": 39,
+            "availabilityType": "time_point",
+            "startTime": "11:00 AM",
+            "endTime": "11:00 AM",
+            "unformattedStartTime": "2024-05-09T11:00:00-0400",
+            "unformattedEndTime": "2024-05-09T11:00:00-0400",
+            "priceBreakdown": [
+              {
+                "title": "Adult",
+                "totalParticipants": 2,
+                "totalPrice": "€ 42.74",
+                "participantsCategoryIdentifier": "(Age 18-64)",
+                "pricePerPerson": "€ 21.37",
+                "priceLabel": "",
+                "pricePerPersonDetail": {
+                  "value": 21.3700008392334,
+                  "formattedValue": "€ 21.37",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "totalPriceDetail": {
+                  "value": 42.7400016784668,
+                  "formattedValue": "€ 42.74",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "pricingCategoryCode": 1
+              },
+              {
+                "title": "Infant",
+                "totalParticipants": 1,
+                "totalPrice": "€ 0",
+                "participantsCategoryIdentifier": "(Age 3 and younger)",
+                "pricePerPerson": "€ 0",
+                "priceLabel": "",
+                "pricePerPersonDetail": {
+                  "value": 0.0,
+                  "formattedValue": "€ 0",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "totalPriceDetail": {
+                  "value": 0.0,
+                  "formattedValue": "€ 0",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "pricingCategoryCode": 4
+              },
+              {
+                "title": "Children",
+                "totalParticipants": 1,
+                "totalPrice": "€ 19.51",
+                "participantsCategoryIdentifier": "(Age 4-17)",
+                "pricePerPerson": "€ 19.51",
+                "priceLabel": "",
+                "pricePerPersonDetail": {
+                  "value": 19.510000228881836,
+                  "formattedValue": "€ 19.51",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "totalPriceDetail": {
+                  "value": 19.510000228881836,
+                  "formattedValue": "€ 19.51",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "pricingCategoryCode": 3
+              }
+            ],
+            "price": {
+              "startingPrice": 62.25,
+              "formattedStartingPrice": "€ 62.25",
+              "unformattedBookingFee": 0.0,
+              "currency": "EUR",
+              "currencySymbol": "€",
+              "priceCategory": "individual",
+              "priceCategoryLabel": "",
+              "unformattedDiscountPercentage": 0,
+              "basePrice": 62.25,
+              "formattedBasePrice": "€ 62.25"
+            }
+          },
+          {
+            "vacancies": 40,
+            "availabilityType": "time_point",
+            "startTime": "11:30 AM",
+            "endTime": "11:30 AM",
+            "unformattedStartTime": "2024-05-09T11:30:00-0400",
+            "unformattedEndTime": "2024-05-09T11:30:00-0400",
+            "priceBreakdown": [
+              {
+                "title": "Adult",
+                "totalParticipants": 2,
+                "totalPrice": "€ 42.74",
+                "participantsCategoryIdentifier": "(Age 18-64)",
+                "pricePerPerson": "€ 21.37",
+                "priceLabel": "",
+                "pricePerPersonDetail": {
+                  "value": 21.3700008392334,
+                  "formattedValue": "€ 21.37",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "totalPriceDetail": {
+                  "value": 42.7400016784668,
+                  "formattedValue": "€ 42.74",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "pricingCategoryCode": 1
+              },
+              {
+                "title": "Infant",
+                "totalParticipants": 1,
+                "totalPrice": "€ 0",
+                "participantsCategoryIdentifier": "(Age 3 and younger)",
+                "pricePerPerson": "€ 0",
+                "priceLabel": "",
+                "pricePerPersonDetail": {
+                  "value": 0.0,
+                  "formattedValue": "€ 0",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "totalPriceDetail": {
+                  "value": 0.0,
+                  "formattedValue": "€ 0",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "pricingCategoryCode": 4
+              },
+              {
+                "title": "Children",
+                "totalParticipants": 1,
+                "totalPrice": "€ 19.51",
+                "participantsCategoryIdentifier": "(Age 4-17)",
+                "pricePerPerson": "€ 19.51",
+                "priceLabel": "",
+                "pricePerPersonDetail": {
+                  "value": 19.510000228881836,
+                  "formattedValue": "€ 19.51",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "totalPriceDetail": {
+                  "value": 19.510000228881836,
+                  "formattedValue": "€ 19.51",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "pricingCategoryCode": 3
+              }
+            ],
+            "price": {
+              "startingPrice": 62.25,
+              "formattedStartingPrice": "€ 62.25",
+              "unformattedBookingFee": 0.0,
+              "currency": "EUR",
+              "currencySymbol": "€",
+              "priceCategory": "individual",
+              "priceCategoryLabel": "",
+              "unformattedDiscountPercentage": 0,
+              "basePrice": 62.25,
+              "formattedBasePrice": "€ 62.25"
+            }
+          },
+          {
+            "vacancies": 40,
+            "availabilityType": "time_point",
+            "startTime": "12:00 PM",
+            "endTime": "12:00 PM",
+            "unformattedStartTime": "2024-05-09T12:00:00-0400",
+            "unformattedEndTime": "2024-05-09T12:00:00-0400",
+            "priceBreakdown": [
+              {
+                "title": "Adult",
+                "totalParticipants": 2,
+                "totalPrice": "€ 42.74",
+                "participantsCategoryIdentifier": "(Age 18-64)",
+                "pricePerPerson": "€ 21.37",
+                "priceLabel": "",
+                "pricePerPersonDetail": {
+                  "value": 21.3700008392334,
+                  "formattedValue": "€ 21.37",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "totalPriceDetail": {
+                  "value": 42.7400016784668,
+                  "formattedValue": "€ 42.74",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "pricingCategoryCode": 1
+              },
+              {
+                "title": "Infant",
+                "totalParticipants": 1,
+                "totalPrice": "€ 0",
+                "participantsCategoryIdentifier": "(Age 3 and younger)",
+                "pricePerPerson": "€ 0",
+                "priceLabel": "",
+                "pricePerPersonDetail": {
+                  "value": 0.0,
+                  "formattedValue": "€ 0",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "totalPriceDetail": {
+                  "value": 0.0,
+                  "formattedValue": "€ 0",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "pricingCategoryCode": 4
+              },
+              {
+                "title": "Children",
+                "totalParticipants": 1,
+                "totalPrice": "€ 19.51",
+                "participantsCategoryIdentifier": "(Age 4-17)",
+                "pricePerPerson": "€ 19.51",
+                "priceLabel": "",
+                "pricePerPersonDetail": {
+                  "value": 19.510000228881836,
+                  "formattedValue": "€ 19.51",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "totalPriceDetail": {
+                  "value": 19.510000228881836,
+                  "formattedValue": "€ 19.51",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "pricingCategoryCode": 3
+              }
+            ],
+            "price": {
+              "startingPrice": 62.25,
+              "formattedStartingPrice": "€ 62.25",
+              "unformattedBookingFee": 0.0,
+              "currency": "EUR",
+              "currencySymbol": "€",
+              "priceCategory": "individual",
+              "priceCategoryLabel": "",
+              "unformattedDiscountPercentage": 0,
+              "basePrice": 62.25,
+              "formattedBasePrice": "€ 62.25"
+            }
+          },
+          {
+            "vacancies": 37,
+            "availabilityType": "time_point",
+            "startTime": "1:00 PM",
+            "endTime": "1:00 PM",
+            "unformattedStartTime": "2024-05-09T13:00:00-0400",
+            "unformattedEndTime": "2024-05-09T13:00:00-0400",
+            "priceBreakdown": [
+              {
+                "title": "Adult",
+                "totalParticipants": 2,
+                "totalPrice": "€ 42.74",
+                "participantsCategoryIdentifier": "(Age 18-64)",
+                "pricePerPerson": "€ 21.37",
+                "priceLabel": "",
+                "pricePerPersonDetail": {
+                  "value": 21.3700008392334,
+                  "formattedValue": "€ 21.37",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "totalPriceDetail": {
+                  "value": 42.7400016784668,
+                  "formattedValue": "€ 42.74",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "pricingCategoryCode": 1
+              },
+              {
+                "title": "Infant",
+                "totalParticipants": 1,
+                "totalPrice": "€ 0",
+                "participantsCategoryIdentifier": "(Age 3 and younger)",
+                "pricePerPerson": "€ 0",
+                "priceLabel": "",
+                "pricePerPersonDetail": {
+                  "value": 0.0,
+                  "formattedValue": "€ 0",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "totalPriceDetail": {
+                  "value": 0.0,
+                  "formattedValue": "€ 0",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "pricingCategoryCode": 4
+              },
+              {
+                "title": "Children",
+                "totalParticipants": 1,
+                "totalPrice": "€ 19.51",
+                "participantsCategoryIdentifier": "(Age 4-17)",
+                "pricePerPerson": "€ 19.51",
+                "priceLabel": "",
+                "pricePerPersonDetail": {
+                  "value": 19.510000228881836,
+                  "formattedValue": "€ 19.51",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "totalPriceDetail": {
+                  "value": 19.510000228881836,
+                  "formattedValue": "€ 19.51",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "pricingCategoryCode": 3
+              }
+            ],
+            "price": {
+              "startingPrice": 62.25,
+              "formattedStartingPrice": "€ 62.25",
+              "unformattedBookingFee": 0.0,
+              "currency": "EUR",
+              "currencySymbol": "€",
+              "priceCategory": "individual",
+              "priceCategoryLabel": "",
+              "unformattedDiscountPercentage": 0,
+              "basePrice": 62.25,
+              "formattedBasePrice": "€ 62.25"
+            }
+          },
+          {
+            "vacancies": 39,
+            "availabilityType": "time_point",
+            "startTime": "2:00 PM",
+            "endTime": "2:00 PM",
+            "unformattedStartTime": "2024-05-09T14:00:00-0400",
+            "unformattedEndTime": "2024-05-09T14:00:00-0400",
+            "priceBreakdown": [
+              {
+                "title": "Adult",
+                "totalParticipants": 2,
+                "totalPrice": "€ 42.74",
+                "participantsCategoryIdentifier": "(Age 18-64)",
+                "pricePerPerson": "€ 21.37",
+                "priceLabel": "",
+                "pricePerPersonDetail": {
+                  "value": 21.3700008392334,
+                  "formattedValue": "€ 21.37",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "totalPriceDetail": {
+                  "value": 42.7400016784668,
+                  "formattedValue": "€ 42.74",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "pricingCategoryCode": 1
+              },
+              {
+                "title": "Infant",
+                "totalParticipants": 1,
+                "totalPrice": "€ 0",
+                "participantsCategoryIdentifier": "(Age 3 and younger)",
+                "pricePerPerson": "€ 0",
+                "priceLabel": "",
+                "pricePerPersonDetail": {
+                  "value": 0.0,
+                  "formattedValue": "€ 0",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "totalPriceDetail": {
+                  "value": 0.0,
+                  "formattedValue": "€ 0",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "pricingCategoryCode": 4
+              },
+              {
+                "title": "Children",
+                "totalParticipants": 1,
+                "totalPrice": "€ 19.51",
+                "participantsCategoryIdentifier": "(Age 4-17)",
+                "pricePerPerson": "€ 19.51",
+                "priceLabel": "",
+                "pricePerPersonDetail": {
+                  "value": 19.510000228881836,
+                  "formattedValue": "€ 19.51",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "totalPriceDetail": {
+                  "value": 19.510000228881836,
+                  "formattedValue": "€ 19.51",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "pricingCategoryCode": 3
+              }
+            ],
+            "price": {
+              "startingPrice": 62.25,
+              "formattedStartingPrice": "€ 62.25",
+              "unformattedBookingFee": 0.0,
+              "currency": "EUR",
+              "currencySymbol": "€",
+              "priceCategory": "individual",
+              "priceCategoryLabel": "",
+              "unformattedDiscountPercentage": 0,
+              "basePrice": 62.25,
+              "formattedBasePrice": "€ 62.25"
+            }
+          },
+          {
+            "vacancies": 38,
+            "availabilityType": "time_point",
+            "startTime": "3:00 PM",
+            "endTime": "3:00 PM",
+            "unformattedStartTime": "2024-05-09T15:00:00-0400",
+            "unformattedEndTime": "2024-05-09T15:00:00-0400",
+            "priceBreakdown": [
+              {
+                "title": "Adult",
+                "totalParticipants": 2,
+                "totalPrice": "€ 42.74",
+                "participantsCategoryIdentifier": "(Age 18-64)",
+                "pricePerPerson": "€ 21.37",
+                "priceLabel": "",
+                "pricePerPersonDetail": {
+                  "value": 21.3700008392334,
+                  "formattedValue": "€ 21.37",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "totalPriceDetail": {
+                  "value": 42.7400016784668,
+                  "formattedValue": "€ 42.74",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "pricingCategoryCode": 1
+              },
+              {
+                "title": "Infant",
+                "totalParticipants": 1,
+                "totalPrice": "€ 0",
+                "participantsCategoryIdentifier": "(Age 3 and younger)",
+                "pricePerPerson": "€ 0",
+                "priceLabel": "",
+                "pricePerPersonDetail": {
+                  "value": 0.0,
+                  "formattedValue": "€ 0",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "totalPriceDetail": {
+                  "value": 0.0,
+                  "formattedValue": "€ 0",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "pricingCategoryCode": 4
+              },
+              {
+                "title": "Children",
+                "totalParticipants": 1,
+                "totalPrice": "€ 19.51",
+                "participantsCategoryIdentifier": "(Age 4-17)",
+                "pricePerPerson": "€ 19.51",
+                "priceLabel": "",
+                "pricePerPersonDetail": {
+                  "value": 19.510000228881836,
+                  "formattedValue": "€ 19.51",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "totalPriceDetail": {
+                  "value": 19.510000228881836,
+                  "formattedValue": "€ 19.51",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "pricingCategoryCode": 3
+              }
+            ],
+            "price": {
+              "startingPrice": 62.25,
+              "formattedStartingPrice": "€ 62.25",
+              "unformattedBookingFee": 0.0,
+              "currency": "EUR",
+              "currencySymbol": "€",
+              "priceCategory": "individual",
+              "priceCategoryLabel": "",
+              "unformattedDiscountPercentage": 0,
+              "basePrice": 62.25,
+              "formattedBasePrice": "€ 62.25"
+            }
+          }
+        ],
+        "cancellation": {
+          "isCancellable": true,
+          "cancellationOffset": 1440,
+          "cancellationOffsetUnit": "minutes",
+          "feeUnit": "percentage",
+          "fee": 0.0
+        },
+        "hasAdditionalDetails": false,
+        "isLikelyToSellOut": false,
+        "attributes": [
+          {
+            "type": "duration",
+            "label": "70 minutes"
+          },
+          {
+            "type": "groupSize",
+            "label": "Max 40 participants"
+          },
+          {
+            "type": "liveGuide",
+            "label": "Guide: English"
+          },
+          {
+            "type": "wheelchairAccessibility",
+            "label": "Wheelchair accessible"
+          }
+        ]
+      }
+    ],
+    "errorMessage": ""
+  }
+}

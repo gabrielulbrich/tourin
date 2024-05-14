@@ -8,6 +8,10 @@ import {
 import { ProductsRepository } from '../repositories/products.repository';
 import { AvailableOptionsInputDto } from '../dto/available-options-input.dto';
 import { OptionsEntity } from '@src/experiences/entities/options.entity';
+import { AvailableOptionsDto } from '@src/experiences/dto/available-options.dto';
+import { AvailabilityDto } from '@src/experiences/dto/availability.dto';
+import { TimeSlotsDto } from '@src/experiences/dto/time-slots.dto';
+import { PricingDto } from '@src/experiences/dto/pricing.dto';
 
 @Injectable()
 export class ExperiencesService {
@@ -26,36 +30,32 @@ export class ExperiencesService {
   async getAvailabilityAndPricing(
     id: number,
     input: AvailableOptionsInputDto,
-  ): Promise<any> {
+  ): Promise<AvailableOptionsDto> {
     const options: OptionsEntity[] =
       await this.experiencesRepository.getOptions(id, input);
 
     return {
       productId: 0,
       options: options.map((option) => {
-        const isValidDate = this.isValidDate(input, option);
-        const isOptionAvailableOnDate = this.isOptionAvailableOnDate(
-          input,
-          option,
-        );
+        this.isValidDate(input, option);
+        this.isOptionAvailableOnDate(input, option);
         const price = this.getPrice(input, option);
         const inputWeekday = this.getInputWeekday(input);
         return {
           id: option.id,
           title: option.title,
           duration: this.getDuration(option),
-          languages: option.languagesOptions?.map((languagesToOption) => {
+          languages: option.languages?.map((language) => {
             return {
-              id: languagesToOption.id,
-              isoCode: languagesToOption.language.isoCode,
-              language: languagesToOption.language.language,
+              id: language.id,
+              isoCode: language.isoCode,
+              language: language.language,
             };
           }),
           availabilities: option.schedule
             .filter((schedules) => inputWeekday === schedules.weekday)
-            .map((schedule) => {
-              return schedule.timeSlots.map((timeSlot) => {
-                console.log(timeSlot);
+            .map<AvailabilityDto>((schedule) => {
+              return schedule.timeSlots.map<TimeSlotsDto>((timeSlot) => {
                 return {
                   vacancies: timeSlot.vacancies,
                   availabilityType: option.availability.type as string,
@@ -174,7 +174,7 @@ export class ExperiencesService {
     return `${option.duration.value} ${option.duration.unit}`;
   }
 
-  getPrice(input: AvailableOptionsInputDto, option: OptionsEntity): any {
+  getPrice(input: AvailableOptionsInputDto, option: OptionsEntity): PricingDto {
     const pricesBreakdown = input.categories.map((category, i) => {
       const pricing = option.pricing.find(
         (price) => price.ticketCategory === category,

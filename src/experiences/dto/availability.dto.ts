@@ -1,29 +1,17 @@
 import { PriceBreakdownDto } from '@src/experiences/dto/price-breakdown.dto';
-import { ApiProperty } from '@nestjs/swagger';
-import { PriceDto } from '@src/experiences/dto/price.dto';
+import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { PricingDto } from '@src/experiences/dto/pricing.dto';
 
 export class AvailabilityDto {
-  @ApiProperty()
-  vacancies: number;
+  @ApiPropertyOptional()
+  id!: number;
 
   @ApiProperty()
-  availabilityType: string;
+  type: 'opening_hours' | 'starting_times';
 
   @ApiProperty()
-  startTime: string;
+  startDate: Date;
 
   @ApiProperty()
-  endTime: string;
-
-  @ApiProperty()
-  unformattedStartTime: string;
-
-  @ApiProperty()
-  unformattedEndTime: string;
-
-  @ApiProperty({ type: [PriceBreakdownDto] })
-  priceBreakdown: PriceBreakdownDto[];
-
-  @ApiProperty({ type: PriceDto })
-  price: PriceDto;
+  endDate: Date;
 }
