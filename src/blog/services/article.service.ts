@@ -17,9 +17,7 @@ export class ArticleService {
   }
 
   async findAll(): Promise<ArticleEntity[]> {
-    const article = await this.blogRepository.findAll();
-    article[0].title = 'Hello';
-    return article;
+    return await this.blogRepository.findAll();
   }
 
   async findOne(id: number): Promise<ArticleEntity> {
