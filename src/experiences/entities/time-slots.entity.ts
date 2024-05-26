@@ -33,7 +33,6 @@ export class TimeSlotsEntity {
   @Transform(() => TimeSlotsDto)
   toDto(): TimeSlotsDto {
     return {
-      id: this.id,
       from: this.from,
       to: this.to,
       capacity: this.capacity,

@@ -2,8 +2,10 @@ import { EntityManager } from 'typeorm';
 import { Injectable } from '@nestjs/common';
 import { IExperienceRepository } from '../interfaces/experiences.interface';
 import { ProductsEntity } from '../entities/products.entity';
-import { AvailableOptionsInputDto } from '../dto/available-options-input.dto';
+import { AvailableOptionsInputDto } from '../dto/available-options/available-options-input.dto';
 import { OptionsEntity } from '@src/experiences/entities/options.entity';
+import { OptionsDto } from '@src/experiences/dto/options.dto';
+import { plainToClass, plainToInstance } from 'class-transformer';
 
 @Injectable()
 export class ProductsRepository implements IExperienceRepository {
@@ -18,9 +20,7 @@ export class ProductsRepository implements IExperienceRepository {
         images: true,
         keywords: true,
         options: {
-          languagesOptions: {
-            language: true,
-          },
+          languages: true,
           availability: {
             schedule: {
               timeSlots: true,
@@ -35,22 +35,22 @@ export class ProductsRepository implements IExperienceRepository {
   async getOptions(
     id: number,
     options: AvailableOptionsInputDto,
-  ): Promise<OptionsEntity[]> {
-    return await this.entityManager.find(OptionsEntity, {
+  ): Promise<OptionsDto[]> {
+    const optionsEntity = await this.entityManager.find(OptionsEntity, {
       where: {
         id: id,
       },
       relations: {
         pricing: true,
-        languagesOptions: {
-          language: true,
-        },
+        languages: true,
         availability: true,
         schedule: {
           timeSlots: true,
         },
       },
     });
+    return plainToInstance(OptionsDto, optionsEntity);
+    // return optionsEntity.map((option) => option.toDto());
   }
 
   getAttractionsByCategory(categoryId: number): Promise<ProductsEntity> {

@@ -14,7 +14,7 @@ export class PricingDto {
   commissionRate: number;
 
   @ApiProperty()
-  price: number;
+  price?: number;
 
   @ApiProperty()
   currencyIso: string;

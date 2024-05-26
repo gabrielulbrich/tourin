@@ -48,6 +48,7 @@ export class AvailabilitiesEntity {
       type: this.type,
       startDate: this.startDate,
       endDate: this.endDate,
+      schedule: this.schedule.map((schedule) => schedule.toDto()),
     };
   }
 }

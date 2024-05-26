@@ -1,6 +1,7 @@
 import { PriceBreakdownDto } from '@src/experiences/dto/price-breakdown.dto';
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { PricingDto } from '@src/experiences/dto/pricing.dto';
+import { ScheduleDto } from '@src/experiences/dto/schedule.dto';
 
 export class AvailabilityDto {
   @ApiPropertyOptional()
@@ -14,4 +15,7 @@ export class AvailabilityDto {
 
   @ApiProperty()
   endDate: Date;
+
+  @ApiProperty({ type: [ScheduleDto] })
+  schedule: ScheduleDto[];
 }

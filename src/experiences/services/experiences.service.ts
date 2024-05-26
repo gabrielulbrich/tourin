@@ -6,12 +6,9 @@ import {
   WEEKDAYS,
 } from '@src/experiences/utils/constants.const';
 import { ProductsRepository } from '../repositories/products.repository';
-import { AvailableOptionsInputDto } from '../dto/available-options-input.dto';
-import { OptionsEntity } from '@src/experiences/entities/options.entity';
-import { AvailableOptionsDto } from '@src/experiences/dto/available-options.dto';
-import { AvailabilityDto } from '@src/experiences/dto/availability.dto';
-import { TimeSlotsDto } from '@src/experiences/dto/time-slots.dto';
-import { PricingDto } from '@src/experiences/dto/pricing.dto';
+import { AvailableOptionsInputDto } from '../dto/available-options/available-options-input.dto';
+import { OptionsDto } from '@src/experiences/dto/options.dto';
+import { PriceBreakdownDto } from '@src/experiences/dto/price-breakdown.dto';
 
 @Injectable()
 export class ExperiencesService {
@@ -30,9 +27,11 @@ export class ExperiencesService {
   async getAvailabilityAndPricing(
     id: number,
     input: AvailableOptionsInputDto,
-  ): Promise<AvailableOptionsDto> {
-    const options: OptionsEntity[] =
-      await this.experiencesRepository.getOptions(id, input);
+  ): Promise<any> {
+    const options: OptionsDto[] = await this.experiencesRepository.getOptions(
+      id,
+      input,
+    );
 
     return {
       productId: 0,
@@ -54,13 +53,14 @@ export class ExperiencesService {
           }),
           availabilities: option.schedule
             .filter((schedules) => inputWeekday === schedules.weekday)
-            .map<AvailabilityDto>((schedule) => {
-              return schedule.timeSlots.map<TimeSlotsDto>((timeSlot) => {
+            .map((schedule) => {
+              return schedule.timeSlots.map((timeSlot) => {
                 return {
                   vacancies: timeSlot.vacancies,
                   availabilityType: option.availability.type as string,
-                  startTime: timeSlot.from,
-                  endTime: timeSlot.to,
+                  from: timeSlot.from,
+                  to: timeSlot.to,
+                  capacity: timeSlot.capacity,
                   unformattedStartTime: timeSlot.from,
                   unformattedEndTime: timeSlot.to,
                   ...price,
@@ -87,7 +87,7 @@ export class ExperiencesService {
 
   isOptionAvailableOnDate(
     input: AvailableOptionsInputDto,
-    option: OptionsEntity,
+    option: OptionsDto,
   ): boolean {
     const weekday = this.getInputWeekday(input);
 
@@ -113,7 +113,7 @@ export class ExperiencesService {
     return WEEKDAYS[input.date.getDay()];
   }
 
-  isValidDate(input: AvailableOptionsInputDto, option: OptionsEntity): boolean {
+  isValidDate(input: AvailableOptionsInputDto, option: OptionsDto): boolean {
     if (input.date < option.availability.startDate) {
       throw new HttpException(
         `The requested date ${input.date.toDateString()} is invalid`,
@@ -138,7 +138,7 @@ export class ExperiencesService {
 
   getNextAvailableDate(
     input: AvailableOptionsInputDto,
-    option: OptionsEntity,
+    option: OptionsDto,
   ): any {
     const weekday = WEEKDAYS[input.date.getDay()];
 
@@ -170,33 +170,35 @@ export class ExperiencesService {
     return nextAvailableIndex - currentDayIndex;
   }
 
-  getDuration(option: OptionsEntity): string {
+  getDuration(option: OptionsDto): string {
     return `${option.duration.value} ${option.duration.unit}`;
   }
 
-  getPrice(input: AvailableOptionsInputDto, option: OptionsEntity): PricingDto {
-    const pricesBreakdown = input.categories.map((category, i) => {
-      const pricing = option.pricing.find(
-        (price) => price.ticketCategory === category,
-      );
-
-      if (!pricing) {
-        throw new HttpException(
-          { message: `Category ${category} not found` },
-          404,
+  getPrice(input: AvailableOptionsInputDto, option: OptionsDto): any {
+    const pricesBreakdown = input.categories.map(
+      (category, i): PriceBreakdownDto => {
+        const pricing = option.pricing.find(
+          (price) => price.ticketCategory === category,
         );
-      }
 
-      return {
-        title: pricing.ticketCategory,
-        totalParticipants: input.participants[i],
-        totalPrice: pricing.price * Number(input.participants[i]),
-        participantsCategoryIdentifier: `(Age ${pricing.ageFrom} - ${pricing.ageTo})`,
-        pricePerPerson: pricing.price,
-        currencySymbol: pricing.currencySymbol,
-        currencyIso: pricing.currencyIso,
-      };
-    });
+        if (!pricing) {
+          throw new HttpException(
+            { message: `Category ${category} not found` },
+            404,
+          );
+        }
+
+        return {
+          title: pricing.ticketCategory,
+          totalParticipants: Number(input.participants[i]),
+          totalPrice: pricing.price * Number(input.participants[i]),
+          participantsCategoryIdentifier: `(Age ${pricing.ageFrom} - ${pricing.ageTo})`,
+          pricePerPerson: pricing.price,
+          currencySymbol: pricing.currencySymbol,
+          currencyIso: pricing.currencyIso,
+        };
+      },
+    );
 
     let finalPrice = 0;
     pricesBreakdown.forEach((price) => {
@@ -211,8 +213,8 @@ export class ExperiencesService {
     };
 
     return {
-      pricesBreakdown,
-      price,
+      ...pricesBreakdown,
+      ...price,
     };
   }
 }

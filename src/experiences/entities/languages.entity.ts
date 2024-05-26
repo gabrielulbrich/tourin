@@ -1,9 +1,4 @@
-import {
-  Column,
-  PrimaryGeneratedColumn,
-  Entity,
-  ManyToMany,
-} from 'typeorm';
+import { Column, PrimaryGeneratedColumn, Entity, ManyToMany } from 'typeorm';
 import { OptionsEntity } from './options.entity';
 
 @Entity({ name: 'languages' })

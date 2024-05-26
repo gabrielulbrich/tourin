@@ -8,14 +8,17 @@ export class PriceBreakdownDto {
   totalParticipants: number;
 
   @ApiProperty()
+  participantsCategoryIdentifier: string;
+
+  @ApiProperty()
   totalPrice: number;
 
   @ApiProperty()
   pricePerPerson: number;
 
   @ApiProperty()
-  priceLabel: string;
+  currencySymbol: string;
 
   @ApiProperty()
-  pricingCategoryCode: number;
+  currencyIso: string;
 }

@@ -12,7 +12,7 @@ import { ProductsEntity } from './products.entity';
 import { PricingEntity } from './pricing.entity';
 import { ScheduleEntity } from './schedule.entity';
 import { OptionsDto } from '@src/experiences/dto/options.dto';
-import { Transform } from 'class-transformer';
+import { plainToClass, Transform } from 'class-transformer';
 import { LanguagesEntity } from '@src/experiences/entities/languages.entity';
 import { JoinTable } from 'typeorm/browser';
 

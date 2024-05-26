@@ -1,23 +1,20 @@
-import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { ApiProperty } from '@nestjs/swagger';
 
 export class TimeSlotsDto {
-  @ApiPropertyOptional()
-  id!: number;
+  @ApiProperty()
+  from: string;
 
   @ApiProperty()
-  startTime: string;
+  to: string;
 
   @ApiProperty()
-  endTime: string;
+  availabilityType?: string;
 
   @ApiProperty()
-  availabilityType: string;
+  unformattedStartTime?: string;
 
   @ApiProperty()
-  unformattedStartTime: string;
-
-  @ApiProperty()
-  unformattedEndTime: string;
+  unformattedEndTime?: string;
 
   @ApiProperty()
   capacity: number;
