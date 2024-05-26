@@ -11,7 +11,6 @@ export class AvailableOptionsOptionsDto extends OmitType(OptionsDto, [
   'cutOff',
   'whereToMeet',
   'availability',
-  'schedule',
   'pricing',
 ]) {
   @ApiProperty()

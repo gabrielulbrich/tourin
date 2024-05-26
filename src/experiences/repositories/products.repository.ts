@@ -43,14 +43,15 @@ export class ProductsRepository implements IExperienceRepository {
       relations: {
         pricing: true,
         languages: true,
-        availability: true,
-        schedule: {
-          timeSlots: true,
+        availability: {
+          schedule: {
+            timeSlots: true,
+          },
         },
       },
     });
-    return plainToInstance(OptionsDto, optionsEntity);
-    // return optionsEntity.map((option) => option.toDto());
+    console.log(optionsEntity);
+    return optionsEntity.map((option: OptionsEntity) => option.toDto());
   }
 
   getAttractionsByCategory(categoryId: number): Promise<ProductsEntity> {

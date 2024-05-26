@@ -51,7 +51,7 @@ export class ExperiencesService {
               language: language.language,
             };
           }),
-          availabilities: option.schedule
+          availabilities: option.availability.schedule
             .filter((schedules) => inputWeekday === schedules.weekday)
             .map((schedule) => {
               return schedule.timeSlots.map((timeSlot) => {
@@ -90,11 +90,13 @@ export class ExperiencesService {
     option: OptionsDto,
   ): boolean {
     const weekday = this.getInputWeekday(input);
+    console.log(weekday);
 
     const scheduleWeekdays = [];
-    option.schedule.forEach((schedule) => {
+    option.availability.schedule.forEach((schedule) => {
       scheduleWeekdays.push(schedule.weekday);
     });
+    console.log(scheduleWeekdays);
 
     if (!scheduleWeekdays.includes(weekday)) {
       throw new HttpException(
@@ -116,7 +118,7 @@ export class ExperiencesService {
   isValidDate(input: AvailableOptionsInputDto, option: OptionsDto): boolean {
     if (input.date < option.availability.startDate) {
       throw new HttpException(
-        `The requested date ${input.date.toDateString()} is invalid`,
+        `The requested date ${input.date.toDateString()} is invalid, input is lower than start date ${option.availability.startDate.toDateString()} `,
         400,
       );
     }
@@ -159,15 +161,16 @@ export class ExperiencesService {
     );
   }
 
-  daysUntilNextAvailableWeekday(currentDay, availableWeekDays) {
-    const currentDayIndex = WEEKDAYS.indexOf(currentDay);
-
-    let nextAvailableIndex = currentDayIndex + 1;
-    while (!availableWeekDays.includes(WEEKDAYS[nextAvailableIndex % 7])) {
+  daysUntilNextAvailableWeekday(
+    inputDayIndex: number,
+    scheduleWeekdays: string[],
+  ) {
+    let nextAvailableIndex = inputDayIndex;
+    while (!scheduleWeekdays.includes(WEEKDAYS[nextAvailableIndex % 7])) {
       nextAvailableIndex++;
     }
 
-    return nextAvailableIndex - currentDayIndex;
+    return nextAvailableIndex - inputDayIndex;
   }
 
   getDuration(option: OptionsDto): string {

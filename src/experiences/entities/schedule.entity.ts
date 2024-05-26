@@ -42,10 +42,6 @@ export class ScheduleEntity {
   @JoinColumn({ name: 'product_id' })
   product: ProductsEntity;
 
-  @ManyToOne(() => OptionsEntity, (experience) => experience.schedule)
-  @JoinColumn({ name: 'option_id' })
-  options: OptionsEntity;
-
   @Transform(() => ScheduleDto)
   toDto(): ScheduleDto {
     return {

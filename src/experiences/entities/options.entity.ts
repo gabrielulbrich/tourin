@@ -6,15 +6,14 @@ import {
   OneToMany,
   OneToOne,
   PrimaryGeneratedColumn,
+  JoinTable,
 } from 'typeorm';
 import { AvailabilitiesEntity } from './availabilities.entity';
 import { ProductsEntity } from './products.entity';
 import { PricingEntity } from './pricing.entity';
-import { ScheduleEntity } from './schedule.entity';
 import { OptionsDto } from '@src/experiences/dto/options.dto';
-import { plainToClass, Transform } from 'class-transformer';
+import { Transform } from 'class-transformer';
 import { LanguagesEntity } from '@src/experiences/entities/languages.entity';
-import { JoinTable } from 'typeorm/browser';
 
 @Entity({ name: 'options' })
 export class OptionsEntity {
@@ -85,9 +84,6 @@ export class OptionsEntity {
   )
   availability: AvailabilitiesEntity;
 
-  @OneToMany(() => ScheduleEntity, (schedule) => schedule.options)
-  schedule: ScheduleEntity[];
-
   @OneToMany(() => PricingEntity, (pricing) => pricing.options)
   pricing: PricingEntity[];
 
@@ -106,7 +102,6 @@ export class OptionsEntity {
       whereToMeet: this.whereToMeet,
       languages: this.languages.map((languageOption) => languageOption.toDto()),
       availability: this.availability.toDto(),
-      schedule: this.schedule.map((schedule) => schedule.toDto()),
       pricing: this.pricing.map((pricing) => pricing.toDto()),
       attributes: [],
       cancellation: undefined,

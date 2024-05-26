@@ -50,9 +50,6 @@ export class OptionsDto {
   @ApiProperty({ type: AvailabilityDto })
   availability: AvailabilityDto;
 
-  @ApiProperty()
-  schedule: ScheduleDto[];
-
   @ApiProperty({ type: CancellationDto })
   cancellation: CancellationDto;
 
