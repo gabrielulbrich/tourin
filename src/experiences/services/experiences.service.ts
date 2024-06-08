@@ -20,8 +20,7 @@ export class ExperiencesService {
   ) {}
 
   async getOverview(id: number) {
-    const overview = await this.experiencesRepository.getOverview(id);
-    return overview;
+    return await this.experiencesRepository.getOverview(id);
   }
 
   async getAvailabilityAndPricing(
@@ -54,6 +53,15 @@ export class ExperiencesService {
           availabilities: option.availability.schedule
             .filter((schedules) => inputWeekday === schedules.weekday)
             .map((schedule) => {
+              console.log(schedule);
+              if (schedule.timeSlots.length === 0) {
+                throw new HttpException(
+                  {
+                    message: `No time slots available for this date`,
+                  },
+                  404,
+                );
+              }
               return schedule.timeSlots.map((timeSlot) => {
                 return {
                   vacancies: timeSlot.vacancies,
@@ -216,8 +224,10 @@ export class ExperiencesService {
     };
 
     return {
-      ...pricesBreakdown,
-      ...price,
+      prices: {
+        pricesBreakdown,
+        ...price,
+      },
     };
   }
 }
