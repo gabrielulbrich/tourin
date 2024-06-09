@@ -10,6 +10,7 @@ import { CategoriesEntity } from '@src/blog/entities/categories.entity';
 import { AuthorEntity } from '@src/blog/entities/author.entity';
 import { ArticleDto } from '@src/blog/dto/article.dto';
 import { Transform } from 'class-transformer';
+import { UpdateArticleDto } from '@src/blog/dto/update-article.dto';
 
 @Entity('articles', { database: 'blog' })
 export class ArticleEntity {
@@ -52,8 +53,9 @@ export class ArticleEntity {
     article.summary = this.summary;
     article.content = this.content;
     article.authorId = this.authorId;
-    article.author = this.author.toDto();
-    article.categories = this.categories.map((category) => category.toDto());
+    article.author = this.author?.toDto();
+    article.categories = this.categories?.map((category) => category.toDto());
     return article;
   }
+
 }
