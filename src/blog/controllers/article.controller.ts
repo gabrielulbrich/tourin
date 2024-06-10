@@ -6,13 +6,14 @@ import {
   Patch,
   Param,
   Delete,
+  ParseIntPipe,
 } from '@nestjs/common';
 import { ArticleService } from '../services/article.service';
 import { CreateArticleDto } from '../dto/create-article.dto';
 import { UpdateArticleDto } from '../dto/update-article.dto';
 import { ErrorReponseDto } from '@src/blog/dto/errors/error-response.dto';
 import { ApiBadRequestResponse } from '@nestjs/swagger';
-import { ArticleEntity } from '@src/blog/entities/article.entity';
+import { ArticleDto } from '@src/blog/dto/article.dto';
 
 @Controller('blogs')
 export class ArticleController {
@@ -23,12 +24,12 @@ export class ArticleController {
     description: 'Invalid article data payload',
     type: ErrorReponseDto,
   })
-  create(@Body() createBlogDto: CreateArticleDto): Promise<ArticleEntity> {
+  create(@Body() createBlogDto: CreateArticleDto): Promise<ArticleDto> {
     return this.articleService.create(createBlogDto);
   }
 
   @Get()
-  findAll(): Promise<ArticleEntity[]> {
+  findAll(): Promise<ArticleDto[]> {
     return this.articleService.findAll();
   }
 
@@ -38,8 +39,11 @@ export class ArticleController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateBlogDto: UpdateArticleDto) {
-    return this.articleService.update(+id, updateBlogDto);
+  update(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateBlogDto: UpdateArticleDto,
+  ) {
+    return this.articleService.update(id, updateBlogDto);
   }
 
   @Delete(':id')

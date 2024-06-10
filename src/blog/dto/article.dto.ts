@@ -1,10 +1,8 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsNotEmpty } from 'class-validator';
-import { CategoriesDto } from '@src/blog/dto/categories.dto';
 import { AuthorDto } from '@src/blog/dto/author.dto';
+import { CategoriesDto } from '@src/blog/dto/categories.dto';
 
-export class CreateArticleDto {
-  @IsNotEmpty()
+export class ArticleDto {
   @ApiProperty()
   title: string;
 
@@ -12,18 +10,15 @@ export class CreateArticleDto {
   text: string;
 
   @ApiProperty()
-  authorId: number;
-
-  @ApiProperty()
-  categoriesId: number;
-
-  @ApiProperty()
   summary: string;
 
   @ApiProperty()
   content: string;
 
-  @ApiProperty({ type: [AuthorDto] })
+  @ApiProperty()
+  authorId: number;
+
+  @ApiProperty({ type: AuthorDto })
   author: AuthorDto;
 
   @ApiProperty({ type: [CategoriesDto] })
