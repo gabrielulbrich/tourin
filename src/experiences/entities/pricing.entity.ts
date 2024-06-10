@@ -6,6 +6,8 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { OptionsEntity } from './options.entity';
+import { PricingDto } from '@src/experiences/dto/pricing.dto';
+import { Transform } from 'class-transformer';
 
 @Entity({ name: 'pricing' })
 export class PricingEntity {
@@ -45,4 +47,20 @@ export class PricingEntity {
   @ManyToOne(() => OptionsEntity, (options) => options.pricing)
   @JoinColumn({ name: 'option_id' })
   options: OptionsEntity;
+
+  @Transform(() => PricingDto)
+  toDto(): PricingDto {
+    return {
+      id: this.id,
+      code: this.code,
+      ticketCategory: this.ticketCategory,
+      commissionRate: this.commissionRate,
+      price: this.price,
+      currencyIso: this.currencyIso,
+      currencySymbol: this.currencySymbol,
+      ageFrom: this.ageFrom,
+      ageTo: this.ageTo,
+      participantsType: this.participantsType,
+    };
+  }
 }

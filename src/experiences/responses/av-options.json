@@ -1,0 +1,97 @@
+{
+  "availableOptions": {
+    "activityId": 560407,
+    "options": [
+      {
+        "id": 963647,
+        "title": "Stone and Nature: Vila Velha and Buraco do Padre, Paraná",
+        "duration": "1 day",
+        "isAvailable": true,
+        "nextAvailableDate": "",
+        "unavailabilityReason": "",
+        "languages": [
+          {
+            "id": 29,
+            "isoCode": "en",
+            "name": "English",
+            "type": "live"
+          }
+        ],
+        "pickup": "Please wait in the hotel lobby 10 minutes before your scheduled pickup time.",
+        "availabilities": [
+          {
+            "vacancies": 4,
+            "availabilityType": "time_point",
+            "startTime": "7:00 AM",
+            "endTime": "7:00 AM",
+            "unformattedStartTime": "2024-04-24T07:00:00-0300",
+            "unformattedEndTime": "2024-04-24T07:00:00-0300",
+            "priceBreakdown": [
+              {
+                "title": "Adult",
+                "totalParticipants": 3,
+                "totalPrice": "€ 674.85",
+                "participantsCategoryIdentifier": "(Age 99 and younger)",
+                "pricePerPerson": "€ 224.95",
+                "priceLabel": "",
+                "pricePerPersonDetail": {
+                  "value": 224.9499969482422,
+                  "formattedValue": "€ 224.95",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "totalPriceDetail": {
+                  "value": 674.8499755859375,
+                  "formattedValue": "€ 674.85",
+                  "currency": {
+                    "iso": "EUR",
+                    "symbol": "€"
+                  }
+                },
+                "pricingCategoryCode": 1
+              }
+            ],
+            "price": {
+              "startingPrice": 674.85,
+              "formattedStartingPrice": "€ 674.85",
+              "unformattedBookingFee": 0.0,
+              "currency": "EUR",
+              "currencySymbol": "€",
+              "priceCategory": "individual",
+              "priceCategoryLabel": "",
+              "unformattedDiscountPercentage": 0,
+              "basePrice": 674.85,
+              "formattedBasePrice": "€ 674.85"
+            }
+          }
+        ],
+        "cancellation": {
+          "isCancellable": true,
+          "cancellationOffset": 1440,
+          "cancellationOffsetUnit": "minutes",
+          "feeUnit": "percentage",
+          "fee": 0.0
+        },
+        "hasAdditionalDetails": false,
+        "isLikelyToSellOut": false,
+        "attributes": [
+          {
+            "type": "skipTheLine",
+            "label": "Skip the ticket line"
+          },
+          {
+            "type": "duration",
+            "label": "1 day"
+          },
+          {
+            "type": "groupSize",
+            "label": "Max 4 participants"
+          }
+        ]
+      }
+    ],
+    "errorMessage": ""
+  }
+}

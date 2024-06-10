@@ -1,16 +1,17 @@
 import {
   Column,
   Entity,
+  ManyToMany,
   ManyToOne,
   OneToMany,
   OneToOne,
   PrimaryGeneratedColumn,
+  JoinTable,
 } from 'typeorm';
 import { AvailabilitiesEntity } from './availabilities.entity';
 import { ProductsEntity } from './products.entity';
 import { PricingEntity } from './pricing.entity';
-import { ScheduleEntity } from './schedule.entity';
-import { LanguagesToOptionsEntity } from '@src/experiences/entities/languages-to-options.entity';
+import { LanguagesEntity } from '@src/experiences/entities/languages.entity';
 
 @Entity({ name: 'options' })
 export class OptionsEntity {
@@ -65,11 +66,12 @@ export class OptionsEntity {
   //  //  // The day before the activity takes place
   //  //  // Within 24 hours after they book
 
-  @OneToMany(
-    () => LanguagesToOptionsEntity,
-    (languagesToOptions) => languagesToOptions.option,
+  @ManyToMany(
+    () => LanguagesEntity,
+    (languagesToOptions) => languagesToOptions.options,
   )
-  languagesOptions: LanguagesToOptionsEntity[];
+  @JoinTable()
+  languages: LanguagesEntity[];
 
   @ManyToOne(() => ProductsEntity, (product) => product.options)
   product: ProductsEntity;
@@ -79,9 +81,6 @@ export class OptionsEntity {
     (availabilities) => availabilities.options,
   )
   availability: AvailabilitiesEntity;
-
-  @OneToMany(() => ScheduleEntity, (schedule) => schedule.options)
-  schedule: ScheduleEntity[];
 
   @OneToMany(() => PricingEntity, (pricing) => pricing.options)
   pricing: PricingEntity[];

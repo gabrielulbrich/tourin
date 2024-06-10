@@ -2,8 +2,8 @@ import { Controller, Get, Param, Query } from '@nestjs/common';
 import { ExperiencesService } from '../services/experiences.service';
 import { ApiTags } from '@nestjs/swagger';
 import { ProductsEntity } from '../entities/products.entity';
-import { AvailableOptionsInputDto } from '../dto/available-options-input.dto';
-import { AvailableOptionsDto } from '@src/experiences/dto/available-options.dto';
+import { AvailableOptionsInputDto } from '../dto/available-options/available-options-input.dto';
+import { AvailableOptionsDto } from '@src/experiences/dto/available-options/available-options.dto';
 
 @Controller('experiences')
 @ApiTags('Contract')

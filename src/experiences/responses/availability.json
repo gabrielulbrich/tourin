@@ -1,0 +1,222 @@
+{
+  "data": {
+    "updateAvailabilityAndPricing": {
+      "success": true,
+      "message": null,
+      "availabilityAndPricing": {
+        "availabilityBlock": {
+          "id": "9495198",
+          "type": "opening_hours",
+          "name": "summer",
+          "activityId": "648396",
+          "activityOptionPricingId": "3086652",
+          "validityDateRange": {
+            "start": "2024-04-01",
+            "end": "2024-04-26",
+            "__typename": "DateRange"
+          },
+          "specialDates": [
+            {
+              "date": "2024-04-03",
+              "timeSlots": [
+                {
+                  "from": "08:00",
+                  "to": "07:00",
+                  "__typename": "TimeSlot"
+                }
+              ],
+              "__typename": "SpecialDate"
+            },
+            {
+              "date": "2024-04-04",
+              "timeSlots": [
+                {
+                  "from": "08:00",
+                  "to": "16:00",
+                  "__typename": "TimeSlot"
+                },
+                {
+                  "from": "17:00",
+                  "to": "18:00",
+                  "__typename": "TimeSlot"
+                }
+              ],
+              "__typename": "SpecialDate"
+            }
+          ],
+          "weekdays": [
+            {
+              "day": "friday",
+              "timeSlots": [
+                {
+                  "from": "08:00",
+                  "to": "16:00",
+                  "__typename": "TimeSlot"
+                },
+                {
+                  "from": "17:00",
+                  "to": "18:00",
+                  "__typename": "TimeSlot"
+                }
+              ],
+              "__typename": "Weekday"
+            },
+            {
+              "day": "monday",
+              "timeSlots": [
+                {
+                  "from": "08:00",
+                  "to": "16:00",
+                  "__typename": "TimeSlot"
+                },
+                {
+                  "from": "17:00",
+                  "to": "18:00",
+                  "__typename": "TimeSlot"
+                }
+              ],
+              "__typename": "Weekday"
+            },
+            {
+              "day": "saturday",
+              "timeSlots": [
+                {
+                  "from": "08:00",
+                  "to": "16:00",
+                  "__typename": "TimeSlot"
+                },
+                {
+                  "from": "17:00",
+                  "to": "18:00",
+                  "__typename": "TimeSlot"
+                }
+              ],
+              "__typename": "Weekday"
+            },
+            {
+              "day": "sunday",
+              "timeSlots": [
+                {
+                  "from": "08:00",
+                  "to": "16:00",
+                  "__typename": "TimeSlot"
+                },
+                {
+                  "from": "17:00",
+                  "to": "18:00",
+                  "__typename": "TimeSlot"
+                }
+              ],
+              "__typename": "Weekday"
+            },
+            {
+              "day": "thursday",
+              "timeSlots": [
+                {
+                  "from": "08:00",
+                  "to": "16:00",
+                  "__typename": "TimeSlot"
+                },
+                {
+                  "from": "17:00",
+                  "to": "18:00",
+                  "__typename": "TimeSlot"
+                }
+              ],
+              "__typename": "Weekday"
+            },
+            {
+              "day": "tuesday",
+              "timeSlots": [],
+              "__typename": "Weekday"
+            },
+            {
+              "day": "wednesday",
+              "timeSlots": [
+                {
+                  "from": "08:00",
+                  "to": "16:00",
+                  "__typename": "TimeSlot"
+                },
+                {
+                  "from": "17:00",
+                  "to": "18:00",
+                  "__typename": "TimeSlot"
+                }
+              ],
+              "__typename": "Weekday"
+            }
+          ],
+          "specialDatesMaxVacancies": null,
+          "pricingToAvailabilityBlocks": [
+            {
+              "activityOption": {
+                "id": "1074321",
+                "__typename": "ActivityOption"
+              },
+              "activityOptionPricing": {
+                "id": "3086652",
+                "__typename": "ActivityOptionPricing"
+              },
+              "__typename": "PricingToAvailabilityBlock"
+            }
+          ],
+          "__typename": "AvailabilityBlock"
+        },
+        "pricing": {
+          "id": "3086652",
+          "name": "summer",
+          "usesFixedNetRates": false,
+          "groupVacanciesPerTimeSlot": 1,
+          "maxIndividualParticipantsPerTimeSlot": null,
+          "participantsRange": {
+            "min": 1,
+            "max": null,
+            "__typename": "PricingParticipants"
+          },
+          "pricesPerCategory": [
+            {
+              "id": "6338606",
+              "pricingId": "3086652",
+              "ageRange": {
+                "maxAge": 85,
+                "minAge": 0,
+                "__typename": "AgeRange"
+              },
+              "bookIndependently": true,
+              "bookingType": "standard",
+              "commissionRate": null,
+              "resolvedCommissionRate": 30,
+              "ticketCategory": "adult",
+              "__typename": "IndividualPricingCategory",
+              "pricingScales": []
+            },
+            {
+              "id": "6338608",
+              "pricingId": "3086652",
+              "ageRange": {
+                "maxAge": 99,
+                "minAge": 86,
+                "__typename": "AgeRange"
+              },
+              "bookIndependently": true,
+              "bookingType": "standard",
+              "commissionRate": null,
+              "resolvedCommissionRate": 30,
+              "ticketCategory": "senior",
+              "__typename": "IndividualPricingCategory",
+              "pricingScales": []
+            }
+          ],
+          "addons": [],
+          "__typename": "ActivityOptionPricing"
+        },
+        "priceOverrides": [],
+        "overlappingSchedules": null,
+        "status": null,
+        "__typename": "AvailabilityAndPricing"
+      },
+      "__typename": "AvailabilityAndPricingPayload"
+    }
+  }
+}

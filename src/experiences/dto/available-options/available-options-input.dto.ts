@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Transform } from 'class-transformer';
-import { IsDate } from 'class-validator';
+import { isArray, IsDate } from 'class-validator';
 
 export class AvailableOptionsInputDto {
   @Transform(({ value }) => new Date(value))
@@ -15,5 +15,6 @@ export class AvailableOptionsInputDto {
   participants: string[];
 
   @ApiProperty()
-  categories: string[];
+  @Transform(({ value }) => (isArray(value) ? value : [value]))
+  ticketCategories: string[];
 }

@@ -10,6 +10,8 @@ import {
 import { OptionsEntity } from './options.entity';
 import { ProductsEntity } from './products.entity';
 import { ScheduleEntity } from './schedule.entity';
+import { AvailabilityDto } from '@src/experiences/dto/availability.dto';
+import { Transform } from 'class-transformer';
 
 @Entity({ name: 'availabilities' })
 export class AvailabilitiesEntity {
@@ -38,4 +40,15 @@ export class AvailabilitiesEntity {
   @ManyToOne(() => ProductsEntity, (product) => product.availabilities)
   @JoinColumn({ name: 'product_id' })
   product: ProductsEntity;
+
+  @Transform(() => AvailabilityDto)
+  toDto(): AvailabilityDto {
+    return {
+      id: this.id,
+      type: this.type,
+      startDate: this.startDate,
+      endDate: this.endDate,
+      schedule: this.schedule.map((schedule) => schedule.toDto()),
+    };
+  }
 }

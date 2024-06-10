@@ -6,8 +6,9 @@ import {
   WEEKDAYS,
 } from '@src/experiences/utils/constants.const';
 import { ProductsRepository } from '../repositories/products.repository';
-import { AvailableOptionsInputDto } from '../dto/available-options-input.dto';
-import { OptionsEntity } from '@src/experiences/entities/options.entity';
+import { AvailableOptionsInputDto } from '../dto/available-options/available-options-input.dto';
+import { OptionsDto } from '@src/experiences/dto/options.dto';
+import { PriceBreakdownDto } from '@src/experiences/dto/price-breakdown.dto';
 
 @Injectable()
 export class ExperiencesService {
@@ -19,48 +20,54 @@ export class ExperiencesService {
   ) {}
 
   async getOverview(id: number) {
-    const overview = await this.experiencesRepository.getOverview(id);
-    return overview;
+    return await this.experiencesRepository.getOverview(id);
   }
 
   async getAvailabilityAndPricing(
     id: number,
     input: AvailableOptionsInputDto,
   ): Promise<any> {
-    const options: OptionsEntity[] =
-      await this.experiencesRepository.getOptions(id, input);
+    const options: OptionsDto[] = await this.experiencesRepository.getOptions(
+      id,
+      input,
+    );
 
     return {
       productId: 0,
-      options: options.map((option) => {
-        const isValidDate = this.isValidDate(input, option);
-        const isOptionAvailableOnDate = this.isOptionAvailableOnDate(
-          input,
-          option,
-        );
+      options: options.map((option: OptionsDto) => {
+        this.isValidDate(input, option);
+        this.isOptionAvailableOnDate(input, option);
         const price = this.getPrice(input, option);
         const inputWeekday = this.getInputWeekday(input);
         return {
           id: option.id,
           title: option.title,
-          duration: this.getDuration(option),
-          languages: option.languagesOptions?.map((languagesToOption) => {
+          duration: option.durationFormatted,
+          languages: option.languages?.map((language) => {
             return {
-              id: languagesToOption.id,
-              isoCode: languagesToOption.language.isoCode,
-              language: languagesToOption.language.language,
+              id: language.id,
+              isoCode: language.isoCode,
+              language: language.language,
             };
           }),
-          availabilities: option.schedule
+          availabilities: option.availability.schedule
             .filter((schedules) => inputWeekday === schedules.weekday)
             .map((schedule) => {
+              if (schedule.timeSlots.length === 0) {
+                throw new HttpException(
+                  {
+                    message: `No time slots available for this date`,
+                  },
+                  404,
+                );
+              }
               return schedule.timeSlots.map((timeSlot) => {
-                console.log(timeSlot);
                 return {
                   vacancies: timeSlot.vacancies,
                   availabilityType: option.availability.type as string,
-                  startTime: timeSlot.from,
-                  endTime: timeSlot.to,
+                  from: timeSlot.from,
+                  to: timeSlot.to,
+                  capacity: timeSlot.capacity,
                   unformattedStartTime: timeSlot.from,
                   unformattedEndTime: timeSlot.to,
                   ...price,
@@ -87,14 +94,16 @@ export class ExperiencesService {
 
   isOptionAvailableOnDate(
     input: AvailableOptionsInputDto,
-    option: OptionsEntity,
+    option: OptionsDto,
   ): boolean {
     const weekday = this.getInputWeekday(input);
+    console.log(weekday);
 
     const scheduleWeekdays = [];
-    option.schedule.forEach((schedule) => {
+    option.availability.schedule.forEach((schedule) => {
       scheduleWeekdays.push(schedule.weekday);
     });
+    console.log(scheduleWeekdays);
 
     if (!scheduleWeekdays.includes(weekday)) {
       throw new HttpException(
@@ -113,10 +122,10 @@ export class ExperiencesService {
     return WEEKDAYS[input.date.getDay()];
   }
 
-  isValidDate(input: AvailableOptionsInputDto, option: OptionsEntity): boolean {
+  isValidDate(input: AvailableOptionsInputDto, option: OptionsDto): boolean {
     if (input.date < option.availability.startDate) {
       throw new HttpException(
-        `The requested date ${input.date.toDateString()} is invalid`,
+        `The requested date ${input.date.toDateString()} is invalid, input is lower than start date ${option.availability.startDate.toDateString()} `,
         400,
       );
     }
@@ -138,7 +147,7 @@ export class ExperiencesService {
 
   getNextAvailableDate(
     input: AvailableOptionsInputDto,
-    option: OptionsEntity,
+    option: OptionsDto,
   ): any {
     const weekday = WEEKDAYS[input.date.getDay()];
 
@@ -159,44 +168,43 @@ export class ExperiencesService {
     );
   }
 
-  daysUntilNextAvailableWeekday(currentDay, availableWeekDays) {
-    const currentDayIndex = WEEKDAYS.indexOf(currentDay);
-
-    let nextAvailableIndex = currentDayIndex + 1;
-    while (!availableWeekDays.includes(WEEKDAYS[nextAvailableIndex % 7])) {
+  daysUntilNextAvailableWeekday(
+    inputDayIndex: number,
+    scheduleWeekdays: string[],
+  ) {
+    let nextAvailableIndex = inputDayIndex;
+    while (!scheduleWeekdays.includes(WEEKDAYS[nextAvailableIndex % 7])) {
       nextAvailableIndex++;
     }
 
-    return nextAvailableIndex - currentDayIndex;
+    return nextAvailableIndex - inputDayIndex;
   }
 
-  getDuration(option: OptionsEntity): string {
-    return `${option.duration.value} ${option.duration.unit}`;
-  }
-
-  getPrice(input: AvailableOptionsInputDto, option: OptionsEntity): any {
-    const pricesBreakdown = input.categories.map((category, i) => {
-      const pricing = option.pricing.find(
-        (price) => price.ticketCategory === category,
-      );
-
-      if (!pricing) {
-        throw new HttpException(
-          { message: `Category ${category} not found` },
-          404,
+  getPrice(input: AvailableOptionsInputDto, option: OptionsDto): any {
+    const pricesBreakdown = input.ticketCategories.map(
+      (category, i): PriceBreakdownDto => {
+        const pricing = option.pricing.find(
+          (price) => price.ticketCategory === category,
         );
-      }
 
-      return {
-        title: pricing.ticketCategory,
-        totalParticipants: input.participants[i],
-        totalPrice: pricing.price * Number(input.participants[i]),
-        participantsCategoryIdentifier: `(Age ${pricing.ageFrom} - ${pricing.ageTo})`,
-        pricePerPerson: pricing.price,
-        currencySymbol: pricing.currencySymbol,
-        currencyIso: pricing.currencyIso,
-      };
-    });
+        if (!pricing) {
+          throw new HttpException(
+            { message: `TicketCategory ${category} not found` },
+            404,
+          );
+        }
+
+        return {
+          title: pricing.ticketCategory,
+          totalParticipants: Number(input.participants[i]),
+          totalPrice: pricing.price * Number(input.participants[i]),
+          participantsCategoryIdentifier: `(Age ${pricing.ageFrom} - ${pricing.ageTo})`,
+          pricePerPerson: pricing.price,
+          currencySymbol: pricing.currencySymbol,
+          currencyIso: pricing.currencyIso,
+        };
+      },
+    );
 
     let finalPrice = 0;
     pricesBreakdown.forEach((price) => {
@@ -211,8 +219,10 @@ export class ExperiencesService {
     };
 
     return {
-      pricesBreakdown,
-      price,
+      prices: {
+        pricesBreakdown,
+        ...price,
+      },
     };
   }
 }
