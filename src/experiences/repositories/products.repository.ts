@@ -5,6 +5,7 @@ import { ProductsEntity } from '../entities/products.entity';
 import { AvailableOptionsInputDto } from '../dto/available-options/available-options-input.dto';
 import { OptionsEntity } from '@src/experiences/entities/options.entity';
 import { OptionsDto } from '@src/experiences/dto/options.dto';
+import { plainToInstance } from 'class-transformer';
 
 @Injectable()
 export class ProductsRepository implements IExperienceRepository {
@@ -49,8 +50,8 @@ export class ProductsRepository implements IExperienceRepository {
         },
       },
     });
-    // console.log(optionsEntity[0].availability);
-    return optionsEntity.map((option: OptionsEntity) => option.toDto());
+
+    return plainToInstance(OptionsDto, optionsEntity);
   }
 
   getAttractionsByCategory(categoryId: number): Promise<ProductsEntity> {

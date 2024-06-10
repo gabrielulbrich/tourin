@@ -34,7 +34,7 @@ export class ExperiencesService {
 
     return {
       productId: 0,
-      options: options.map((option) => {
+      options: options.map((option: OptionsDto) => {
         this.isValidDate(input, option);
         this.isOptionAvailableOnDate(input, option);
         const price = this.getPrice(input, option);
@@ -42,7 +42,7 @@ export class ExperiencesService {
         return {
           id: option.id,
           title: option.title,
-          duration: this.getDuration(option),
+          duration: option.durationFormatted,
           languages: option.languages?.map((language) => {
             return {
               id: language.id,
@@ -53,7 +53,6 @@ export class ExperiencesService {
           availabilities: option.availability.schedule
             .filter((schedules) => inputWeekday === schedules.weekday)
             .map((schedule) => {
-              console.log(schedule);
               if (schedule.timeSlots.length === 0) {
                 throw new HttpException(
                   {
@@ -181,12 +180,8 @@ export class ExperiencesService {
     return nextAvailableIndex - inputDayIndex;
   }
 
-  getDuration(option: OptionsDto): string {
-    return `${option.duration.value} ${option.duration.unit}`;
-  }
-
   getPrice(input: AvailableOptionsInputDto, option: OptionsDto): any {
-    const pricesBreakdown = input.categories.map(
+    const pricesBreakdown = input.ticketCategories.map(
       (category, i): PriceBreakdownDto => {
         const pricing = option.pricing.find(
           (price) => price.ticketCategory === category,
@@ -194,7 +189,7 @@ export class ExperiencesService {
 
         if (!pricing) {
           throw new HttpException(
-            { message: `Category ${category} not found` },
+            { message: `TicketCategory ${category} not found` },
             404,
           );
         }

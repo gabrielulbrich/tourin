@@ -11,8 +11,6 @@ import {
 import { AvailabilitiesEntity } from './availabilities.entity';
 import { ProductsEntity } from './products.entity';
 import { PricingEntity } from './pricing.entity';
-import { OptionsDto } from '@src/experiences/dto/options.dto';
-import { Transform } from 'class-transformer';
 import { LanguagesEntity } from '@src/experiences/entities/languages.entity';
 
 @Entity({ name: 'options' })
@@ -86,25 +84,4 @@ export class OptionsEntity {
 
   @OneToMany(() => PricingEntity, (pricing) => pricing.options)
   pricing: PricingEntity[];
-
-  @Transform(() => OptionsDto)
-  toDto(): OptionsDto {
-    return {
-      id: this.id,
-      title: this.title,
-      code: this.code,
-      description: this.description,
-      isPrivate: this.isPrivate,
-      isActive: this.isActive,
-      duration: this.duration,
-      validity: this.validity,
-      cutOff: this.cutOff,
-      whereToMeet: this.whereToMeet,
-      languages: this.languages.map((languageOption) => languageOption.toDto()),
-      availability: this.availability.toDto(),
-      pricing: this.pricing.map((pricing) => pricing.toDto()),
-      attributes: [],
-      cancellation: undefined,
-    };
-  }
 }

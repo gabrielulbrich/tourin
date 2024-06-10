@@ -3,7 +3,6 @@ import { LanguagesDto } from '@src/experiences/dto/languages.dto';
 import { AvailabilityDto } from '@src/experiences/dto/availability.dto';
 import { CancellationDto } from '@src/experiences/dto/cancellation.dto';
 import { AttributesDto } from '@src/experiences/dto/attributes.dto';
-import { ScheduleDto } from '@src/experiences/dto/schedule.dto';
 import { PricingDto } from '@src/experiences/dto/pricing.dto';
 
 export class OptionsDto {
@@ -58,4 +57,12 @@ export class OptionsDto {
 
   @ApiProperty()
   pricing: PricingDto[];
+
+  constructor(partial: Partial<OptionsDto>) {
+    Object.assign(this, partial);
+  }
+
+  get durationFormatted(): string {
+    return `${this.duration.value} ${this.duration.unit}`;
+  }
 }
