@@ -36,6 +36,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+    - run: cp .env.prod .env
     - run: yarn install
     - run: yarn build
     - run: pm2 restart nestjs-app
