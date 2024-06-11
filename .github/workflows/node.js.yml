@@ -8,17 +8,17 @@ on:
   pull_request:
     branches: [ "main" ]
 
-env:
-  ENVIRONMENT: prod
-  PORT: 3000
-  DATABASE_USER: root
-  DATABASE_PASSWORD: root
-  DATABASE_HOST: tourin.cr44s2400fte.eu-central-1.rds.amazonaws.com
-  DATABASE_ROOT_PASSWORD: supers3cr3t
-  DATABASE_NAME: tourin
-  DATABASE_PORT: 3306
-  DATABASE_MIGRATION: false
-  DATABASE_MIGRATION_FILES: 'dist/migrations/*'
+#env:
+#  ENVIRONMENT: prod
+#  PORT: 3000
+#  DATABASE_USER: root
+#  DATABASE_PASSWORD: root
+#  DATABASE_HOST: tourin.cr44s2400fte.eu-central-1.rds.amazonaws.com
+#  DATABASE_ROOT_PASSWORD: supers3cr3t
+#  DATABASE_NAME: tourin
+#  DATABASE_PORT: 3306
+#  DATABASE_MIGRATION: false
+#  DATABASE_MIGRATION_FILES: 'dist/migrations/*'
 
 jobs:
   build:
