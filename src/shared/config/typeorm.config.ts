@@ -1,6 +1,11 @@
+import * as dotenv from 'dotenv'; // @see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
+dotenv.config();
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { DataSource, DataSourceOptions } from 'typeorm';
 import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
+
+console.log('process.env.DATABASE_USER', process.env.DATABASE_USER);
+console.log('process.env.DATABASE_HOST', process.env.DATABASE_HOST);
 
 export const config: DataSourceOptions = {
   type: 'mysql',
