@@ -28,6 +28,6 @@ export class ReviewsEntity {
   @ManyToOne(() => ProductsEntity, (product) => product.reviews)
   product: ProductsEntity;
 
-  @Column({ type: 'date', default: () => 'CURRENT_TIMESTAMP' })
-  created_at: Date;
+  @Column({ type: 'datetime', default: () => 'CURRENT_TIMESTAMP' })
+  createdAt: Date;
 }
