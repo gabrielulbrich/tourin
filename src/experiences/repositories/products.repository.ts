@@ -6,12 +6,18 @@ import { AvailableOptionsInputDto } from '../dto/available-options/available-opt
 import { OptionsEntity } from '@src/experiences/entities/options.entity';
 import { OptionsDto } from '@src/experiences/dto/options.dto';
 import { plainToInstance } from 'class-transformer';
+import { ProductDto } from '@src/experiences/dto/product.dto';
 
 @Injectable()
 export class ProductsRepository implements IExperienceRepository {
   constructor(private readonly entityManager: EntityManager) {}
 
-  async getOverview(id: number): Promise<ProductsEntity> {
+  async getProducts(): Promise<ProductDto[]> {
+    const productEntity = await this.entityManager.find(ProductsEntity);
+    return plainToInstance(ProductDto, productEntity);
+  }
+
+  async getProductOverview(id: number): Promise<ProductsEntity> {
     return await this.entityManager.findOne(ProductsEntity, {
       where: {
         id: id,

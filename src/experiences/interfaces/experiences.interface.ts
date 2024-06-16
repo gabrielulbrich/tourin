@@ -3,7 +3,7 @@ import { AvailableOptionsInputDto } from '../dto/available-options/available-opt
 import { OptionsDto } from '@src/experiences/dto/options.dto';
 
 export interface IExperienceRepository {
-  getOverview(id: number): Promise<ProductsEntity>;
+  getProductOverview(id: number): Promise<ProductsEntity>;
   getOptions(
     id: number,
     options: AvailableOptionsInputDto,

@@ -12,6 +12,7 @@ export class AvailableOptionsOptionsDto extends OmitType(OptionsDto, [
   'whereToMeet',
   'availability',
   'pricing',
+  'durationFormatted',
 ]) {
   @ApiProperty()
   duration: string;

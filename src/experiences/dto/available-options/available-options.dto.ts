@@ -7,4 +7,8 @@ export class AvailableOptionsDto {
 
   @ApiProperty({ type: [AvailableOptionsOptionsDto] })
   options: AvailableOptionsOptionsDto[];
+
+  constructor(partial: Partial<AvailableOptionsDto>) {
+    Object.assign(this, partial);
+  }
 }

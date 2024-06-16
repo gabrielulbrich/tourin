@@ -9,6 +9,7 @@ import { ProductsRepository } from '../repositories/products.repository';
 import { AvailableOptionsInputDto } from '../dto/available-options/available-options-input.dto';
 import { OptionsDto } from '@src/experiences/dto/options.dto';
 import { PriceBreakdownDto } from '@src/experiences/dto/price-breakdown.dto';
+import { AvailableOptionsDto } from '@src/experiences/dto/available-options/available-options.dto';
 
 @Injectable()
 export class ExperiencesService {
@@ -19,20 +20,24 @@ export class ExperiencesService {
     private readonly attractionCategories: CategoriesRepository,
   ) {}
 
+  async getProducts() {
+    return await this.experiencesRepository.getProducts();
+  }
+
   async getOverview(id: number) {
-    return await this.experiencesRepository.getOverview(id);
+    return await this.experiencesRepository.getProductOverview(id);
   }
 
   async getAvailabilityAndPricing(
     id: number,
     input: AvailableOptionsInputDto,
-  ): Promise<any> {
+  ): Promise<AvailableOptionsDto> {
     const options: OptionsDto[] = await this.experiencesRepository.getOptions(
       id,
       input,
     );
 
-    return {
+    return new AvailableOptionsDto({
       productId: 0,
       options: options.map((option: OptionsDto) => {
         this.isValidDate(input, option);
@@ -89,7 +94,7 @@ export class ExperiencesService {
           ],
         };
       }),
-    };
+    });
   }
 
   isOptionAvailableOnDate(
