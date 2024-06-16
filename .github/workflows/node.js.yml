@@ -10,6 +10,17 @@ on:
 jobs:
   build:
     runs-on: self-hosted
+    env:
+      ENVIRONMENT: production
+      PORT: 3000
+      DATABASE_USER: admin
+      DATABASE_PASSWORD: supers3cr3t
+      DATABASE_HOST: database-1.cr44s2400fte.eu-central-1.rds.amazonaws.com
+      DATABASE_ROOT_PASSWORD: supers3cr3t
+      DATABASE_NAME: tourin
+      DATABASE_PORT: 3306
+      DATABASE_MIGRATION: false
+      DATABASE_MIGRATION_FILES: 'dist/migrations/*'
 
     strategy:
       matrix:
