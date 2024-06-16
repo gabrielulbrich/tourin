@@ -10,18 +10,6 @@ on:
 jobs:
   build:
     runs-on: self-hosted
-    env:
-      ENVIRONMENT: production
-      PORT: 3000
-      DATABASE_USER: admin
-      DATABASE_PASSWORD: supers3cr3t
-      DATABASE_HOST: database-1.cr44s2400fte.eu-central-1.rds.amazonaws.com
-      DATABASE_ROOT_PASSWORD: supers3cr3t
-      DATABASE_NAME: tourin
-      DATABASE_PORT: 3306
-      DATABASE_MIGRATION: false
-      DATABASE_MIGRATION_FILES: 'dist/migrations/*'
-      PROD_ENV_FILE: ${{ secrets.TOURIN_PRODUCTION }}
 
     strategy:
       matrix:
@@ -35,16 +23,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - name: Make envfile
-      uses: SpicyPizza/create-envfile@v1
-      with:
-        envkey_DEBUG: false
-        DATABASE_USER: "123456abcdef"
-        envkey_SECRET_KEY: ${{ secrets.SECRET_KEY }}
-        DATABASE_HOST: database-1.cr44s2400fte.eu-central-1.rds.amazonaws.com
     - run: touch .env
     - run: echo "${{secrets.TOURIN_PRODUCTION }}" > .env
-    - run: echo DATABASE_HOST="database-1.cr44s2400fte.eu-central-1.rds.amazonaws.com" >> .env
     - run: yarn install
     - run: yarn build
-    - run: pm2 restart tourin-api
+    - run: pm2 delete tourin-api
+    - run: pm2 start dist/src/main.js --name "tourin-api"
