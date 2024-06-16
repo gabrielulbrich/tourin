@@ -34,7 +34,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: cp .env.prod .env
+    - run: touch .env
+    - run: echo API_KEY="database-1.cr44s2400fte.eu-central-1.rds.amazonaws.com" >> .env
     - run: yarn install
     - run: yarn build
     - run: pm2 restart tourin-api
