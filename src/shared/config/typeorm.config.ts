@@ -4,9 +4,6 @@ import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { DataSource, DataSourceOptions } from 'typeorm';
 import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 
-console.log('process.env.DATABASE_USER', process.env.DATABASE_USER);
-console.log('process.env.DATABASE_HOST', process.env.DATABASE_HOST);
-
 export const config: DataSourceOptions = {
   type: 'mysql',
   host: process.env.DATABASE_HOST,
@@ -14,7 +11,7 @@ export const config: DataSourceOptions = {
   username: process.env.DATABASE_USER,
   password: process.env.DATABASE_PASSWORD,
   database: 'experiences',
-  synchronize: process.env.ENVIRONMENT === 'development',
+  synchronize: false,
   entities: [__dirname + '/../../**/entities/*.entity.{js,ts}'],
   migrationsRun: process.env.DATABASE_MIGRATION === 'true',
   migrationsTableName: 'migrations',
