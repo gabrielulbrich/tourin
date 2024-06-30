@@ -1,4 +1,5 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { TICKET_CATEGORIES } from '@src/experiences/utils/enum';
 
 export class PricingDto {
   @ApiPropertyOptional()
@@ -7,8 +8,8 @@ export class PricingDto {
   @ApiProperty()
   code: number;
 
-  @ApiProperty()
-  ticketCategory: string;
+  @ApiProperty({ enum: TICKET_CATEGORIES })
+  ticketCategory: TICKET_CATEGORIES;
 
   @ApiProperty()
   commissionRate: number;

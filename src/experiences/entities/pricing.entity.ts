@@ -8,6 +8,7 @@ import {
 import { OptionsEntity } from './options.entity';
 import { PricingDto } from '@src/experiences/dto/pricing.dto';
 import { Transform } from 'class-transformer';
+import { TICKET_CATEGORIES } from '@src/experiences/utils/enum';
 
 @Entity({ name: 'pricing' })
 export class PricingEntity {
@@ -19,9 +20,9 @@ export class PricingEntity {
 
   @Column({
     type: 'enum',
-    enum: ['adult', 'child', 'youth', 'senior', 'student'],
+    enum: TICKET_CATEGORIES,
   })
-  ticketCategory: string;
+  ticketCategory: TICKET_CATEGORIES;
 
   @Column({ type: 'integer' })
   commissionRate: number;

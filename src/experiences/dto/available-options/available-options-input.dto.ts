@@ -1,6 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Transform } from 'class-transformer';
 import { isArray, IsDate } from 'class-validator';
+import { TICKET_CATEGORIES } from '@src/experiences/utils/enum';
 
 export class AvailableOptionsInputDto {
   @Transform(({ value }) => new Date(value))
@@ -14,7 +15,7 @@ export class AvailableOptionsInputDto {
   @ApiProperty()
   participants: string[];
 
-  @ApiProperty()
+  @ApiProperty({ enum: TICKET_CATEGORIES, isArray: true })
   @Transform(({ value }) => (isArray(value) ? value : [value]))
-  ticketCategories: string[];
+  ticketCategories: TICKET_CATEGORIES[];
 }
