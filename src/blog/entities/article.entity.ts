@@ -4,13 +4,13 @@ import {
   PrimaryGeneratedColumn,
   ManyToOne,
   JoinColumn,
-  OneToMany,
+  OneToMany, ManyToMany,
 } from 'typeorm';
 import { CategoriesEntity } from '@src/blog/entities/categories.entity';
 import { AuthorEntity } from '@src/blog/entities/author.entity';
 import { ArticleDto } from '@src/blog/dto/article.dto';
 import { Transform } from 'class-transformer';
-import { UpdateArticleDto } from '@src/blog/dto/update-article.dto';
+import { TagsEntity } from '@src/blog/entities/tags.entity';
 
 @Entity('articles', { database: 'blog' })
 export class ArticleEntity {
@@ -38,12 +38,17 @@ export class ArticleEntity {
   @Column({ name: 'author_id' })
   authorId: number;
 
+
   @OneToMany(() => CategoriesEntity, (category) => category.categories)
   categories: CategoriesEntity[];
 
   @ManyToOne(() => AuthorEntity)
   @JoinColumn({ name: 'author_id' })
   author: AuthorEntity;
+
+  @ManyToMany(() => TagsEntity, (tags) => tags.article)
+  @JoinColumn()
+  tags: TagsEntity[];
 
   @Transform(() => ArticleDto)
   toDto?(): ArticleDto {

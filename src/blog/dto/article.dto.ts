@@ -1,8 +1,11 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { AuthorDto } from '@src/blog/dto/author.dto';
+import { AuthorDto } from '@src/blog/dto/author/author.dto';
 import { CategoriesDto } from '@src/blog/dto/categories.dto';
 
 export class ArticleDto {
+  @ApiProperty()
+  id: number;
+
   @ApiProperty()
   title: string;
 
