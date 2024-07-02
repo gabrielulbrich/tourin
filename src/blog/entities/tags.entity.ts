@@ -3,7 +3,6 @@ import {
   Entity,
   JoinColumn,
   ManyToMany,
-  ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { ArticleEntity } from '@src/blog/entities/article.entity';
@@ -17,6 +16,5 @@ export class TagsEntity {
   tag: string;
 
   @ManyToMany(() => ArticleEntity, (article) => article.tags)
-  @JoinColumn()
-  article: ArticleEntity[];
+  articles: ArticleEntity[];
 }

@@ -4,7 +4,9 @@ import {
   PrimaryGeneratedColumn,
   ManyToOne,
   JoinColumn,
-  OneToMany, ManyToMany,
+  OneToMany,
+  ManyToMany,
+  JoinTable,
 } from 'typeorm';
 import { CategoriesEntity } from '@src/blog/entities/categories.entity';
 import { AuthorEntity } from '@src/blog/entities/author.entity';
@@ -35,10 +37,6 @@ export class ArticleEntity {
   @Column({ type: 'datetime', default: () => 'CURRENT_TIMESTAMP' })
   updatedAt: Date;
 
-  @Column({ name: 'author_id' })
-  authorId: number;
-
-
   @OneToMany(() => CategoriesEntity, (category) => category.categories)
   categories: CategoriesEntity[];
 
@@ -46,8 +44,8 @@ export class ArticleEntity {
   @JoinColumn({ name: 'author_id' })
   author: AuthorEntity;
 
-  @ManyToMany(() => TagsEntity, (tags) => tags.article)
-  @JoinColumn()
+  @ManyToMany(() => TagsEntity, (tags) => tags.articles)
+  @JoinTable({ name: 'articles_to_tags' })
   tags: TagsEntity[];
 
   @Transform(() => ArticleDto)
@@ -57,10 +55,8 @@ export class ArticleEntity {
     article.text = this.text;
     article.summary = this.summary;
     article.content = this.content;
-    article.authorId = this.authorId;
     article.author = this.author?.toDto();
     article.categories = this.categories?.map((category) => category.toDto());
     return article;
   }
-
 }

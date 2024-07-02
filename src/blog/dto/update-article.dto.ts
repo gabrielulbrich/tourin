@@ -10,7 +10,6 @@ export class UpdateArticleDto extends PartialType(CreateArticleDto) {
     article.text = this.text;
     article.summary = this.summary;
     article.content = this.content;
-    article.authorId = this.authorId;
 
     return article;
   }
