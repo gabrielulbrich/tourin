@@ -12,10 +12,12 @@ import { ArticleService } from '../services/article.service';
 import { CreateArticleDto } from '../dto/create-article.dto';
 import { UpdateArticleDto } from '../dto/update-article.dto';
 import { ErrorReponseDto } from '@src/blog/dto/errors/error-response.dto';
-import { ApiBadRequestResponse } from '@nestjs/swagger';
+import { ApiBadRequestResponse, ApiTags } from '@nestjs/swagger';
 import { ArticleDto } from '@src/blog/dto/article.dto';
 
+
 @Controller('blogs')
+@ApiTags('Articles')
 export class ArticleController {
   constructor(private readonly articleService: ArticleService) {}
 
@@ -34,7 +36,7 @@ export class ArticleController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
+  findOne(@Param('id') id: string): Promise<ArticleDto> {
     return this.articleService.findOne(+id);
   }
 
