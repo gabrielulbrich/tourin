@@ -1,11 +1,12 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
-import { ApiBadRequestResponse } from '@nestjs/swagger';
+import { ApiBadRequestResponse, ApiTags } from '@nestjs/swagger';
 import { ErrorReponseDto } from '@src/blog/dto/errors/error-response.dto';
 import { TagsService } from '@src/blog/services/tags.service';
 import { CreateTagsDto } from '@src/blog/dto/tags/create-tags.dto';
 import { TagsDto } from '@src/blog/dto/tags/tags.dto';
 
 @Controller('tags')
+@ApiTags('Tags')
 export class TagsController {
   constructor(private readonly tagsService: TagsService) {}
 

@@ -1,6 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { AuthorDto } from '@src/blog/dto/author/author.dto';
-import { CategoriesDto } from '@src/blog/dto/categories.dto';
+import { CategoriesDto } from '@src/blog/dto/category/categories.dto';
+import { TagsDto } from '@src/blog/dto/tags/tags.dto';
 
 export class ArticleDto {
   @ApiProperty()
@@ -26,4 +27,7 @@ export class ArticleDto {
 
   @ApiProperty({ type: [CategoriesDto] })
   categories: CategoriesDto[];
+
+  @ApiProperty({ type: [TagsDto] })
+  tags: TagsDto[];
 }

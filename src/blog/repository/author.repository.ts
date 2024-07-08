@@ -22,7 +22,6 @@ export class AuthorRepository implements IAuthorRepository {
     const authorEntity = await this.entityManager.findOne(AuthorEntity, {
       where: { id },
     });
-
     if (!authorEntity) {
       return null;
     }

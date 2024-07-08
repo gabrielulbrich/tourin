@@ -3,6 +3,7 @@ import { IArticleRepository } from '@src/blog/interfaces/article.interface';
 import {
   ARTICLE_REPOSITORY_TOKEN,
   AUTHOR_REPOSITORY_TOKEN,
+  CATEGORIES_REPOSITORY_TOKEN,
   TAGS_REPOSITORY_TOKEN,
 } from '@src/blog/utils/constants.const';
 import { CreateArticleDto } from '@src/blog/dto/create-article.dto';
@@ -12,8 +13,7 @@ import { IAuthorRepository } from '@src/blog/interfaces/author.interface';
 import { AuthorEntity } from '@src/blog/entities/author.entity';
 import { AuthorDto } from '@src/blog/dto/author/author.dto';
 import { ITagsRepository } from '@src/blog/interfaces/tags.interface';
-
-
+import { ICategoriesRepository } from '@src/blog/interfaces/categories.interface';
 
 @Injectable()
 export class ArticleService {
@@ -24,24 +24,39 @@ export class ArticleService {
     private readonly authorRepository: IAuthorRepository,
     @Inject(TAGS_REPOSITORY_TOKEN)
     private readonly tagsRepository: ITagsRepository,
+    @Inject(CATEGORIES_REPOSITORY_TOKEN)
+    private readonly categoriesRepository: ICategoriesRepository,
   ) {}
 
   async create(createArticleDto: CreateArticleDto): Promise<ArticleDto> {
     const author = await this.authorRepository.findOne(
       createArticleDto.authorId,
     );
-    if(!author){
-      throw new HttpException(`Author ${createArticleDto.authorId} not found`, 404);
+    if (!author) {
+      throw new HttpException(
+        `Author ${createArticleDto.authorId} not found`,
+        404,
+      );
     }
     for (const tag of createArticleDto.tags) {
       const tags = await this.tagsRepository.findOne(tag);
-      if(!tags){
+      if (!tags) {
         throw new HttpException(`Tags ${tag} not found`, 404);
+      }
+    }
+    for (const category of createArticleDto.categories) {
+      const categories = await this.categoriesRepository.findOne(category);
+      if (!categories) {
+        throw new HttpException(`Categories ${category} not found`, 404);
       }
     }
 
     const article = await this.blogRepository.create(createArticleDto);
-    await this.tagsRepository.createArticleTags(article.id, createArticleDto.tags);
+    article.tags = await this.tagsRepository.createArticleTags(
+      article.id,
+      createArticleDto.tags,
+    );
+
     return article;
   }
 
@@ -65,11 +80,10 @@ export class ArticleService {
   }
 
   async update(id: number, updateBlogDto: UpdateArticleDto) {
-    const author = await this.authorRepository.findOne(updateBlogDto.authorId);
-    if (!author) {
-      throw new HttpException(`Author with id ${updateBlogDto.authorId} not found`, 404);
-    }
+    console.log(updateBlogDto);
+
     const article = await this.blogRepository.update(id, updateBlogDto);
+
     if (!article) {
       throw new HttpException(`Article with id ${id} not found`, 404);
     }
@@ -85,5 +99,4 @@ export class ArticleService {
     await this.blogRepository.remove(id);
     return `This action removes a #${id} blog`;
   }
-
 }
