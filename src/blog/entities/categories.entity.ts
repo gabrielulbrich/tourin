@@ -1,8 +1,13 @@
-import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { ArticleEntity } from '@src/blog/entities/article.entity';
-import { CategoriesDto } from '@src/blog/dto/categories.dto';
+import { CategoriesDto } from '@src/blog/dto/category/categories.dto';
 import { Transform } from 'class-transformer';
-import { ArticleDto } from '@src/blog/dto/article.dto';
 
 @Entity('categories', { database: 'blog' })
 export class CategoriesEntity {

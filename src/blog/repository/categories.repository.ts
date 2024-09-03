@@ -1,6 +1,6 @@
-import { EntityManager } from 'typeorm';
-import { Injectable } from '@nestjs/common';
+import { HttpException, Injectable } from '@nestjs/common';
 import { ICategoriesRepository } from '@src/blog/interfaces/categories.interface';
+import { EntityManager } from 'typeorm';
 import { CreateCategoriesDto } from '@src/blog/dto/category/create-categories.dto';
 import { CategoriesDto } from '@src/blog/dto/category/categories.dto';
 import { CategoriesEntity } from '@src/blog/entities/categories.entity';
@@ -29,7 +29,7 @@ export class CategoriesRepository implements ICategoriesRepository {
     );
 
     if (!categoriesEntity) {
-      return null;
+      throw new HttpException(`No category '${id}' found`, 404);
     }
 
     return plainToClass(CategoriesDto, categoriesEntity);

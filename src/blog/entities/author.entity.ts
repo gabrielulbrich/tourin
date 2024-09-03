@@ -1,6 +1,6 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { ArticleEntity } from '@src/blog/entities/article.entity';
-import { AuthorDto } from '@src/blog/dto/author.dto';
+import { AuthorDto } from '@src/blog/dto/author/author.dto';
 import { Transform } from 'class-transformer';
 
 @Entity('author', { database: 'blog' })
